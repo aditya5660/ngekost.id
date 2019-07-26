@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 use Auth;
 use App\User;
+use App\FavoritedProperties;
+use App\Transaction;
 use Carbon\Carbon;
 
 use Illuminate\Support\Facades\DB;
@@ -16,7 +18,11 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('user.index');
+        $favoritedpropertycount = FavoritedProperties::where('user_id',Auth::user()->id)->count();
+        $favoritedproperty    = FavoritedProperties::latest()->with('property')->where('user_id',Auth::user()->id)->take(5)->get();
+        $transaction   = Transaction::with('property','user')->where('user_id',Auth::user()->id)->latest()->take(5)->get();
+        $transactioncount   = Transaction::where('user_id',Auth::user()->id)->count();
+        return view('user.index',['transaction'=>$transaction,'favoritedproperty'=>$favoritedproperty,'transactioncount'=>$transactioncount,'favoritedpropertycount'=>$favoritedpropertycount]);
     }
     public function profile()
     {

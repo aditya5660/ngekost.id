@@ -9,7 +9,8 @@ use Intervention\Image\Facades\Image;
 use Auth;
 use App\User;
 use Carbon\Carbon;
-
+use App\Property;
+use App\Transaction;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -17,7 +18,12 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('owner.index');
+        $transactioncount = Transaction::where('owner_id',Auth::user()->id)->count();
+        $propertycount = Property::where('user_id',Auth::user()->id)->count();
+        $pendingpropertycount = Property::where('user_id',Auth::user()->id)->where('status',0)->count();
+        $property    = Property::latest()->with('user','category')->where('user_id',Auth::user()->id)->take(5)->get();
+        $transaction   = Transaction::with('property','user')->latest()->where('user_id',Auth::user()->id)->take(5)->get();
+        return view('owner.index',['property'=> $property ,'transaction'=>$transaction,'transactioncount'=>$transactioncount,'propertycount'=>$propertycount,'pendingpropertycount'=>$pendingpropertycount]);
     }
     public function profile()
     {
