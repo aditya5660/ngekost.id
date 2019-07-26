@@ -245,8 +245,6 @@ Admin Dashboard - ngekost.id
                 </div>
             </div>
         </div>
-        <p class="sub-banner-2 text-center">© 2018 Theme Vessel. Trademarks and brands are the property
-            of their respective owners.</p>
     </div>
 
 @endsection

@@ -8,13 +8,13 @@ Owner Dashboard - ngekost.id
         <div class="dashboard-header clearfix">
             <div class="row">
                 <div class="col-sm-12 col-md-6">
-                    <h4>Hello , Tom</h4>
+                <h4>Hello , {{Auth::user()->name}}</h4>
                 </div>
                 <div class="col-sm-12 col-md-6">
                     <div class="breadcrumb-nav">
                         <ul>
                             <li>
-                                <a href="index.html">Index</a>
+                                <a href="{{route('owner.dashboard')}}">Index</a>
                             </li>
                             <li>
                                 <a href="#" class="active">Dashboard</a>
@@ -24,56 +24,42 @@ Owner Dashboard - ngekost.id
                 </div>
             </div>
         </div>
-        <div class="alert alert-success alert-2" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
-                    aria-hidden="true">&times;</span></button>
-            <strong>Your listing</strong> YOUR LISTING HAS BEEN APPROVED!
-        </div>
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-6">
+            <div class="col-lg-4 col-md-3 col-sm-6">
                 <div class="ui-item bg-success">
                     <div class="left">
-                        <h4>242</h4>
-                        <p>Active Property</p>
+                        <h4>{{$propertycount}}</h4>
+                        <p>My Properties</p>
                     </div>
                     <div class="right">
-                        <i class="fa fa-map-marker"></i>
+                        <i class="flaticon-apartment-1"></i>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="ui-item bg-warning">
+            <div class="col-lg-4 col-md-3 col-sm-6">
+                <div class="ui-item bg-primary">
                     <div class="left">
-                        <h4>1242</h4>
+                        <h4>{{$pendingpropertycount}}</h4>
                         <p>Pending Property</p>
                     </div>
                     <div class="right">
-                        <i class="fa fa-eye"></i>
+                        <i class="flaticon-apartment-1"></i>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="ui-item bg-active">
+
+            <div class="col-lg-4 col-md-3 col-sm-6">
+                <div class="ui-item bg-warning">
                     <div class="left">
-                        <h4>786</h4>
-                        <p>Reviews</p>
+                        <h4>{{$transactioncount}}</h4>
+                        <p>Transaction</p>
                     </div>
                     <div class="right">
-                        <i class="fa fa-comments-o"></i>
+                        <i class="flaticon-bill"></i>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-6">
-                <div class="ui-item bg-dark">
-                    <div class="left">
-                        <h4>42</h4>
-                        <p>Favorited</p>
-                    </div>
-                    <div class="right">
-                        <i class="fa fa-heart-o"></i>
-                    </div>
-                </div>
-            </div>
+
         </div>
         <div class="row">
             <div class="col-lg-6 col-md-6">
@@ -81,150 +67,38 @@ Owner Dashboard - ngekost.id
                     <div class="dashboard-message bdr clearfix ">
                         <div class="tab-box-2">
                             <div class="clearfix mb-30 comments-tr">
-                                <span>Comments</span>
-                                <ul class="nav nav-pills float-right" id="pills-tab" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active show" id="pills-profile-tab"
-                                            data-toggle="pill" href="#pills-profile" role="tab"
-                                            aria-controls="pills-profile"
-                                            aria-selected="false">Pending</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="pills-contact-tab"
-                                            data-toggle="pill" href="#pills-contact" role="tab"
-                                            aria-controls="pills-contact"
-                                            aria-selected="true">Approved</a>
-                                    </li>
-                                </ul>
+                                <span>New Properties</span>
                             </div>
-                            <div class="tab-content" id="pills-tabContent">
-                                <div class="tab-pane fade" id="pills-contact" role="tabpanel"
-                                    aria-labelledby="pills-contact-tab">
-                                    <div class="comment">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="img/avatar/avatar-3.jpg"
-                                                    alt="comments-user">
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>Maikel Alisa</h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
-                                    <div class="comment">
-                                        <div class="comment-author">
-                                            <a href="#"><img src="img/avatar/avatar-1.jpg"
-                                                    alt="comments-user"></a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>
-                                                    Maikel Alisa
-                                                </h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
-                                    <div class="comment mb-0">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="img/avatar/avatar-2.jpg"
-                                                    alt="comments-user">
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>
-                                                    Maikel Alisa
-                                                </h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade active show" id="pills-profile"
-                                    role="tabpanel" aria-labelledby="pills-profile-tab">
-                                    <div class="comment">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="img/avatar/avatar-2.jpg"
-                                                    alt="comments-user">
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>
-                                                    Maikel Alisa
-                                                </h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
-                                    <div class="comment">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="img/avatar/avatar-3.jpg"
-                                                    alt="comments-user">
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>
-                                                    Maikel Alisa
-                                                </h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
-                                    <div class="comment mb-0">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="img/avatar/avatar-1.jpg"
-                                                    alt="comments-user">
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>
-                                                    Maikel Alisa
-                                                </h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
+                            <div class="tab-content" id="pills-tabContent2">
+                                <div class="table-responsive">
+                                    <table class="table table-hover dashboard-task-infos">
+                                        <thead>
+                                            <tr>
+                                                <th>SL.</th>
+                                                <th>Title</th>
+                                                <th>Created At</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($property as $key => $item)
+                                            @php
+                                            if ($item->status == 1) {
+                                                $status = 'Published';
+                                            } elseif($item->status == 2) {
+                                                $status = 'Not Published';
+                                            }
+
+                                            @endphp
+                                            <tr>
+                                                <td>{{ ++$key }}.</td>
+                                                <td>{{ $item->title }}</td>
+                                                <td>{{ $item->created_at->format('d, M Y H:i') }}</td>
+                                                <td><button disabled="disabled" class="btn btn-primary btn-xs">{{ $status }}</button></td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -236,151 +110,47 @@ Owner Dashboard - ngekost.id
                     <div class="dashboard-message bdr clearfix ">
                         <div class="tab-box-2">
                             <div class="clearfix mb-30 comments-tr">
-                                <span>New Member</span>
-                                <ul class="nav nav-pills float-right" id="pills-tab2"
-                                    role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active show" id="pills-profile-tab2"
-                                            data-toggle="pill" href="#pills-profile2" role="tab"
-                                            aria-controls="pills-profile"
-                                            aria-selected="false">Pending</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" id="pills-contact-tab2"
-                                            data-toggle="pill" href="#pills-contact2" role="tab"
-                                            aria-controls="pills-contact"
-                                            aria-selected="true">Approved</a>
-                                    </li>
-                                </ul>
+                                <span>New Transaction</span>
                             </div>
                             <div class="tab-content" id="pills-tabContent2">
-                                <div class="tab-pane fade" id="pills-contact2" role="tabpanel"
-                                    aria-labelledby="pills-contact-tab2">
-                                    <div class="comment">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="img/avatar/avatar-3.jpg"
-                                                    alt="comments-user">
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>Maikel Alisa</h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
-                                    <div class="comment">
-                                        <div class="comment-author">
-                                            <a href="#"><img src="img/avatar/avatar-1.jpg"
-                                                    alt="comments-user"></a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>
-                                                    Maikel Alisa
-                                                </h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
-                                    <div class="comment mb-0">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="img/avatar/avatar-2.jpg"
-                                                    alt="comments-user">
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>
-                                                    Maikel Alisa
-                                                </h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade active show" id="pills-profile2"
-                                    role="tabpanel" aria-labelledby="pills-profile-tab2">
-                                    <div class="comment">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="img/avatar/avatar-2.jpg"
-                                                    alt="comments-user">
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>
-                                                    Maikel Alisa
-                                                </h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
-                                    <div class="comment">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="img/avatar/avatar-3.jpg"
-                                                    alt="comments-user">
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>
-                                                    Maikel Alisa
-                                                </h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
-                                    <div class="comment mb-0">
-                                        <div class="comment-author">
-                                            <a href="#">
-                                                <img src="img/avatar/avatar-1.jpg"
-                                                    alt="comments-user">
-                                            </a>
-                                        </div>
-                                        <div class="comment-content">
-                                            <div class="comment-meta">
-                                                <h5>
-                                                    Maikel Alisa
-                                                </h5>
-                                                <div class="comment-meta">
-                                                    8:42 PM 1/28/2017<a href="#">Reply</a>
-                                                </div>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing
-                                                elit. Donec luctus tincidunt aliquam. Aliquam
-                                                gravida massa at sem </p>
-                                        </div>
-                                    </div>
+                                <div class="table-responsive">
+                                    <table class="table table-hover dashboard-task-infos">
+                                        <thead>
+                                            <tr>
+                                                <th>SL.</th>
+                                                <th>Property</th>
+                                                <th>Users</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($transaction as $key => $item)
+                                            @php
+                                                        if ($item->status == 0) {
+                                                            $status = 'Belum Dibayar';
+                                                        } elseif ($item->status == 1) {
+                                                            $status = 'Menunggu Konfirmasi Pembayaran';
+                                                        } elseif ($item->status == 2) {
+                                                            $status = 'Pembayaran Diterima';
+                                                        } elseif ($item->status == 3) {
+                                                            $status = 'Approved by Property Owner';
+                                                        } elseif ($item->status == 4) {
+                                                            $status = 'Canceled by Property Owner';
+                                                        } elseif ($item->status == 5) {
+                                                            $status = 'Transaksi Selesai';
+                                                        } elseif ($item->status == 6) {
+                                                            $status = 'Canceled';
+                                                        }
+                                            @endphp
+                                            <tr>
+                                                <td>{{ ++$key }}.</td>
+                                                <td>{{ $item->property->title }}</td>
+                                                <td>{{ $item->user->name }}</td>
+                                                <td><button disabled="disabled" class="btn btn-xs btn-primary">{{ $status }}</button></td>
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -388,9 +158,7 @@ Owner Dashboard - ngekost.id
                 </div>
             </div>
         </div>
-    </div>
-    <p class="sub-banner-2 text-center">© 2018 Theme Vessel. Trademarks and brands are the property
-        of their respective owners.</p>
+
 </div>
 
 @endsection

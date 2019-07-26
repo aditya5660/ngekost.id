@@ -76,8 +76,6 @@ class PagesController extends Controller
     }
 
 
-    // AGENT PAGE
-
 
     // BLOG PAGE
     public function blog()
