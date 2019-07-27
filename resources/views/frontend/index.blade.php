@@ -8,43 +8,43 @@
 <div class="banner banner" id="banner">
     <div id="bannerCarousole" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
-            @foreach ($sliders as $item)
-
-            <div class="carousel-item banner-max-height @if ($item->id == 1)
-                    {{ 'active'}}
-                @endif">
-                <img class="d-block w-100" src="{{Storage::url('slider/'.$item->image)}}" alt="banner">
+            @if ($sliders)
+                @foreach ($sliders as $key => $item)
+                <div class="carousel-item banner-max-height @if ($key == 0)
+                        {{ 'active'}}
+                    @endif">
+                    <img class="d-block w-100" src="{{Storage::url('slider/'.$item->image)}}" alt="banner">
+                    <div class="carousel-caption banner-slider-inner d-flex h-100 text-center">
+                        <div class="carousel-content container">
+                            <div class="text-left">
+                                <h1>{{$item->title}}</h1>
+                                <p>
+                                    {{$item->description}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            @else
+            <div class="carousel-item banner-max-height active">
+                <img class="d-block w-100" src="{{Storage::url('slider/banner-1.png')}}" alt="banner">
                 <div class="carousel-caption banner-slider-inner d-flex h-100 text-center">
                     <div class="carousel-content container">
                         <div class="text-left">
-                            <h1>{{$item->title}}</h1>
+                            <h1>Cari Kost? ya di Ngekost.id</h1>
                             <p>
-                                {{$item->description}}
                             </p>
-                            {{-- <form id="form_search" action="" method="get">
-                                <div class="inline-search-area ml-auto mr-auto d-none d-xl-block d-lg-block" >
-                                    <div class="row justify-content-md-center">
-                                        <div class="col-xl-8 col-lg-8 col-sm-8 col-6 search-col">
-                                                <div class="form-group ">
-                                                    <input class="form-control " id="title" name="title" type="text" placeholder="Ketik nama tempat atau alamat..." required="required">
-                                                </div>
-                                        </div>
-                                        <div class="col-xl-2 col-lg-2 col-sm-4 col-6 search-col">
-                                            <button type="submit" class="btn button-theme btn-search btn-block">
-                                                <i class="fa fa-search"></i><strong>Search</strong>
-                                            </button>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </form> --}}
                         </div>
                     </div>
                 </div>
             </div>
-            @endforeach
+            @endif
+
+
 
         </div>
+        @if ($sliders)
         <a class="carousel-control-prev" href="#bannerCarousole" role="button" data-slide="prev">
             <span class="slider-mover-left" aria-hidden="true">
                 <i class="fa fa-angle-left"></i>
@@ -55,6 +55,7 @@
                 <i class="fa fa-angle-right"></i>
             </span>
         </a>
+        @endif
     </div>
 
     <!-- Search Section start -->

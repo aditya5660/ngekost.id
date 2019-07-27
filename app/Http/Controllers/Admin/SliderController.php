@@ -98,7 +98,7 @@ class SliderController extends Controller
             if(Storage::disk('public')->exists('slider/'.$slider->image)){
                 Storage::disk('public')->delete('slider/'.$slider->image);
             }
-            $sliderimg = Image::make($image)->resize(1600, 480)->save();
+            $sliderimg = Image::make($image)->resize(2560,1440)->save();
             Storage::disk('public')->put('slider/'.$imagename, $sliderimg);
         }else{
             $imagename = $request->oldimage;
