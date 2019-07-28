@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             ],
             [
                 'id'            => 3,
-                'role_id'            => 3,
+                'role_id'        => 3,
                 'name'          => 'User',
                 'username'      => 'user',
                 'email'         => 'user@ngekost.id',
@@ -63,7 +63,7 @@ class DatabaseSeeder extends Seeder
                 'created_at'    => date("Y-m-d H:i:s")
             ],
             [
-                'user_id'       => 2,
+                'user_id'       => 3,
                 'token'         => sha1(time()),
                 'created_at'    => date("Y-m-d H:i:s")
             ],

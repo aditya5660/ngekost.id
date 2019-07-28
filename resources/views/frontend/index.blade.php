@@ -8,7 +8,9 @@
 <div class="banner banner" id="banner">
     <div id="bannerCarousole" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
+
             @if ($sliders = null )
+
                 @foreach ($sliders as $key => $item)
                 <div class="carousel-item banner-max-height @if ($key == 0)
                         {{ 'active'}}
