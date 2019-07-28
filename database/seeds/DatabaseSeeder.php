@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
                 'image'         => 'default.png',
                 'about'         => 'Bio of admin',
                 'password'      => bcrypt('123qweasd'),
+                'token_register'=>str_random(190),
                 'created_at'    => date("Y-m-d H:i:s")
             ],
             [
@@ -32,6 +33,7 @@ class DatabaseSeeder extends Seeder
                 'image'         => 'default.png',
                 'about'         => '',
                 'password'      => bcrypt('123qweasd'),
+                'token_register'=>str_random(190),
                 'created_at'    => date("Y-m-d H:i:s")
             ],
             [
@@ -42,6 +44,7 @@ class DatabaseSeeder extends Seeder
                 'image'         => 'default.png',
                 'about'         => null,
                 'password'      => bcrypt('123qweasd'),
+                'token_register'=>str_random(190),
                 'created_at'    => date("Y-m-d H:i:s")
             ],
         ]);
@@ -63,6 +66,17 @@ class DatabaseSeeder extends Seeder
                 'slug'          => 'users',
                 'created_at'    => date("Y-m-d H:i:s")
             ]
+        ]);
+        DB::table('settings')->insert([
+            'name'          => 'Ngekost.id',
+            'email'         => 'hello@ngekost.id',
+            'phone'         => '02748567123',
+            'address'           => 'Ruko Casa Grande, Jl. Ring Road Utara No.25, Jenengan, Maguwoharjo, Kec. Depok, Kabupaten Sleman, Daerah Istimewa Yogyakarta 55283',
+            'footer'            => 'Cari Kost? ya di ngekost.id',
+            'aboutus'           => 'Ngekost.id web application menyajikan informasi Kamar kosan, lengkap dengan fasilitas kost, harga kost, dan dekorasi kamar beserta foto desain kamar yang disesuaikan dengan kondisi sebenarnya. Setiap Rumah Kost yang ada di Kosan.id benar-benar kami datangi, kami verifikasi, kami seleksi dan kami ambil data langsung, termasuk kost yang didaftarkan oleh pemilik atau umum. Informasi ketersediaan kamar kost dan harga kost kami update max setiap 2 minggu sekali untuk memastikan info kost kami akurat dan bermanfaat untuk anak kost.',
+            'facebook'          => 'https://www.facebook.com/adt12',
+            'twitter'           => 'https://www.twitter.com/adt12',
+            'linkedin'          => 'https://www.linkedin.com/in/adityaproject',
         ]);
 
     }
