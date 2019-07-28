@@ -41,17 +41,22 @@ class LoginController extends Controller
 
     protected function authenticated($request, $user)
     {
-        if ($user->hasRole('Admin')) {
+        // if ($user->hasRole('Admin') ) {
+        //     $this->redirectTo = route('admin.dashboard');
 
-            $this->redirectTo = route('admin.dashboard');
+        // } elseif ($user->hasRole('Owner')) {
 
-        } elseif ($user->hasRole('Owner')) {
+        //     $this->redirectTo = route('owner.dashboard');
 
-            $this->redirectTo = route('owner.dashboard');
+        // } elseif ($user->hasRole('Users')) {
 
-        } elseif ($user->hasRole('Users')) {
-
-            $this->redirectTo = route('users.dashboard');
-        }
+        //     $this->redirectTo = route('users.dashboard');
+        // }
+        if (!$user->verified) {
+            auth()->logout();
+            return back()->with('warning', 'You need to confirm your account. We have sent you an activation code, please check your email.');
+          }
+          
+        return redirect()->intended($this->redirectPath());
     }
 }

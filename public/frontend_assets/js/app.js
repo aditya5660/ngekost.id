@@ -63,19 +63,19 @@ $(function () {
                     $('.sticky-header').addClass('header-shrink');
                 }
                 if($('.do-sticky').length < 1) {
-                    // $('.logo img').attr('src', 'public/frontend_assets/img/logos/black-logo.png');
+                    $('.logo img').attr('src', 'http://127.0.0.1:8000/logo/logo-blue.png');
                 }
             }
             else {
                 $('.sticky-header').removeClass('header-shrink');
                 if($('.do-sticky').length < 1 && $('.fixed-header').length == 0 && $('.fixed-header2').length == 0) {
-                    // $('.logo img').attr('src', 'public/frontend_assets/img/logos/black-logo.png');
+                    $('.logo img').attr('src', 'http://127.0.0.1:8000/logo/logo-white.png');
                 } else {
-                    // $('.logo img').attr('src', 'public/frontend_assets/img/logos/black-logo.png');
+                    $('.logo img').attr('src', 'http://127.0.0.1:8000/logo/logo-blue.png');
                 }
             }
         } else {
-            // $('.logo img').attr('src', 'public/frontend_assets/img/logos/black-logo.png');
+            $('.logo img').attr('src', 'http://127.0.0.1:8000/logo/logo-blue.png');
         }
     }
 

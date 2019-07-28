@@ -3,8 +3,10 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Contracts\Auth\MustVerifyEmail as MustVerifyEmailContract;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Notifications\MailResetPasswordNotification as MailResetPasswordNotification;
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role_id', 'username', 'image', 'about'
+        'id','name', 'email', 'password', 'role_id', 'username', 'image', 'about',
     ];
 
     /**
@@ -41,4 +43,9 @@ class User extends Authenticatable
     {
         return $this->role->name;
     }
+    public function verifyUser()
+    {
+        return $this->hasOne('App\VerifyUser');
+    }
+
 }

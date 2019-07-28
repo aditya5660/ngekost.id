@@ -7,9 +7,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <!-- Form content box start -->
                     <div class="form-content-box">
-                        <!-- details -->
+                        @if (session('status'))
+                            <div class="alert alert-success">
+                              {{ session('status') }}
+                            </div>
+                          @endif
+                          @if (session('warning'))
+                            <div class="alert alert-warning">
+                              {{ session('warning') }}
+                            </div>
+                          @endif
                         <div class="details">
                             <!-- Logo -->
                             <a href="">

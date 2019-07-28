@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
 
         DB::table('users')->insert([
             [
+                'id'            => 1,
                 'role_id'       => 1,
                 'name'          => 'Admin',
                 'username'      => 'admin',
@@ -22,10 +23,11 @@ class DatabaseSeeder extends Seeder
                 'image'         => 'default.png',
                 'about'         => 'Bio of admin',
                 'password'      => bcrypt('123qweasd'),
-                'token_register'=>str_random(190),
+                'verified'      => 1,
                 'created_at'    => date("Y-m-d H:i:s")
             ],
             [
+                'id'            => 2,
                 'role_id'       => 2,
                 'name'          => 'Owner',
                 'username'      => 'owner',
@@ -33,22 +35,39 @@ class DatabaseSeeder extends Seeder
                 'image'         => 'default.png',
                 'about'         => '',
                 'password'      => bcrypt('123qweasd'),
-                'token_register'=>str_random(190),
+                'verified'      => 1,
                 'created_at'    => date("Y-m-d H:i:s")
             ],
             [
-                'role_id'       => 3,
+                'id'            => 3,
+                'role_id'            => 3,
                 'name'          => 'User',
                 'username'      => 'user',
                 'email'         => 'user@ngekost.id',
+                'verified'      => 1,
                 'image'         => 'default.png',
                 'about'         => null,
                 'password'      => bcrypt('123qweasd'),
-                'token_register'=>str_random(190),
                 'created_at'    => date("Y-m-d H:i:s")
             ],
         ]);
-
+        DB::table('verify_users')->insert([
+            [
+                'user_id'       => 1,
+                'token'         => sha1(time()),
+                'created_at'    => date("Y-m-d H:i:s")
+            ],
+            [
+                'user_id'       => 2,
+                'token'         => sha1(time()),
+                'created_at'    => date("Y-m-d H:i:s")
+            ],
+            [
+                'user_id'       => 2,
+                'token'         => sha1(time()),
+                'created_at'    => date("Y-m-d H:i:s")
+            ],
+        ]);
 
         DB::table('roles')->    insert([
             [
