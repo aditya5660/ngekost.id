@@ -31,7 +31,7 @@ Admin Category - ngekost.id
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Role</th>
-                                <th>Status</th>
+                                <th>Verified</th>
                                 <th>Created at</th>
                                 <th>Action</th>
                             </tr>
@@ -61,14 +61,14 @@ Admin Category - ngekost.id
             {data: 'name', name: 'name'},
             {data: 'email', name: 'email'},
             {data: 'role', name: 'role'},
-            {data: 'status', name: 'status'},
+            {data: 'verified', name: 'verified'},
             {data: 'created_at', name: 'created_at'},
             {data: 'action', name: 'action', orderable: false, searchable: false},
           ]
       });
       $('body').on('click', '.activeBtn', function () {
           var id = $(this).data("id");
-          var status = $(this).data("status");
+          var verified = $(this).data("verified");
 
           confirm("Are You sure want to active !");
           $.ajax({
@@ -77,7 +77,7 @@ Admin Category - ngekost.id
                 data: {
                     '_token': $('input[name=_token]').val(),
                     'id': id,
-                    'status': status
+                    'verified': verified
                 },
               success: function (data) {
                 toastr.success('Successfully Update Users!', 'Success Alert', {timeOut: 5000});

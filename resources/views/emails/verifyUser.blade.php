@@ -193,8 +193,6 @@
                                                                         target="_blank">
                                                                         Verify Email
                                                                     </a></td>
-                                                                or
-                                                                <a href="{{url('user/verify', $user->verifyUser->token)}}"></a>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -203,9 +201,7 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <!--[if mso | IE]>
-            </td></tr></table>
-            <![endif]-->
+
                             </td>
                         </tr>
                     </tbody>

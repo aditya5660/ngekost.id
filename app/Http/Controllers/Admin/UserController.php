@@ -34,10 +34,10 @@ class UserController extends Controller
                             return '<a href="javascript:void(0)" class="btn btn-success btn-xs">Owner</a>';
                         }
                     })
-                    ->addColumn('status',function($row){
-                        if ($row->status === 0) {
+                    ->addColumn('verified',function($row){
+                        if ($row->verified === 0) {
                             return '<a href="javascript:void(0)" class="btn btn-outline-danger btn-xs">Pending</a>';
-                        } elseif ($row->status === 1) {
+                        } elseif ($row->verified === 1) {
                             return '<a href="javascript:void(0)" class="btn btn-outline-success btn-xs">Approved</a>';
                         }
                     })
@@ -45,14 +45,14 @@ class UserController extends Controller
                         return \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $row->created_at)->diffForHumans();
                     })
                     ->addColumn('action', function($row){
-                            if ($row->status === 0) {
-                                $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-status="'.$row->status.'" data-original-title="Active" class="active btn btn-success btn-xs activeBtn"><i class="fa fa-check"></i></a>';
-                            } elseif ($row->status === 1) {
-                                $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-status="'.$row->status.'" data-original-title="Active" class="active btn btn-warning btn-xs activeBtn"><i class="fa fa-close"> </i></a>';
+                            if ($row->verified === 0) {
+                                $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-verified="'.$row->verified.'" data-original-title="Active" class="active btn btn-success btn-xs activeBtn"><i class="fa fa-check"></i></a>';
+                            } elseif ($row->verified === 1) {
+                                $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-verified="'.$row->verified.'" data-original-title="Active" class="active btn btn-warning btn-xs activeBtn"><i class="fa fa-close"> </i></a>';
                             }
                             return $btn;
                     })
-                    ->rawColumns(['role','action','status','created_at'])
+                    ->rawColumns(['role','action','verified','created_at'])
                     ->make(true);
         }
 
@@ -105,12 +105,12 @@ class UserController extends Controller
     public function changeStatus(Request $request)
     {
         $id = $request->id;
-        $status = $request->status;
+        $verified = $request->verified;
         // Kost::updateOrCreate(['id' => $request->id],
         //         ['status' => !$request->status]);
         DB::table('users')
             ->where('id', $id)
-            ->update(['status' => !$status ]);
+            ->update(['verified' => !$verified ]);
         return response()->json(['success'=>'Kost saved successfully.']);
     }
 

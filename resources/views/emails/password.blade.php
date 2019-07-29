@@ -187,11 +187,13 @@
                                                                     <td style="border:none;border-radius:3px;color:white;cursor:auto;padding:15px 19px;"
                                                                         align="center" valign="middle" bgcolor="#1dafff"><a
 
-                                                                            href="{{url('password/reset/',$token)}}"
+                                                                            href="{{$actionUrl}}"
                                                                             style="text-decoration:none;line-height:100%;background:#1dafff;color:white;font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:15px;font-weight:normal;text-transform:none;margin:0px;"
                                                                             target="_blank">
                                                                             Reset Password
-                                                                        </a></td>
+                                                                        </a>
+                                                                    </td>
+
 
                                                                 </tr>
                                                             </tbody>

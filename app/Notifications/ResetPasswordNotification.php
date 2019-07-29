@@ -5,7 +5,7 @@ namespace App\Notifications;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Auth\Notifications\ResetPassword;
+use Illuminate\Auth\Notifications\ResetPassword as ResetPassword;
 use Illuminate\Notifications\Messages\MailMessage;
 
 
@@ -42,10 +42,13 @@ class ResetPasswordNotification extends ResetPassword
      */
     public function toMail($notifiable)
     {
+        if (static::$toMailCallback) {
+            return call_user_func(static::$toMailCallback, $notifiable, $this->token);
+        }
+        $link = url( "/password/reset/" . $this->token ."?email=". $notifiable->getEmailForPasswordReset());
         return (new MailMessage)
-            ->view(
-                'emails.password', ['token' => $this->token]
-            )
+            ->view('emails.password')
+            ->action('Reset Password', $link)
             ->subject('Reset Password Notification');
     }
 

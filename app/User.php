@@ -49,9 +49,5 @@ class User extends Authenticatable
         return $this->hasOne('App\VerifyUser');
     }
 
-    public function sendPasswordResetNotification($token)
-    {
-    $this->notify(new ResetPasswordNotification($token));
-    }
 
 }

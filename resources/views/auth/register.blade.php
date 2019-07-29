@@ -50,8 +50,8 @@
                             </div>
 
                             <div class="form-group ">
-                                <select name="role" id="role" class="input-text form-control">
-                                    <option class="input-text form-control" value="users">Users</option>
+                                <select name="roleid" id="role" class="input-text form-control">
+                                    <option class="input-text form-control" value="user">Users</option>
                                     <option class="input-text form-control" value="owner">Owner</option>
                                 </select>
                                 @if ($errors->has('role'))
