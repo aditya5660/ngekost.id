@@ -139,7 +139,7 @@ class PropertiesController extends Controller
                 $propertyimage = Image::make($images);
                     /* insert watermark at bottom-right corner with 10px offset */
                 $propertyimage->resize(750, 500);
-                $propertyimage->insert(public_path('logo/logo-blue.png'), 'center');
+                $propertyimage->insert(public_path('logo/watermark-blue.png'), 'center');
                 $propertyimage->save();
                 Storage::disk('public')->put('property/gallery/'.$galimage['name'], $propertyimage);
 
@@ -213,6 +213,7 @@ class PropertiesController extends Controller
         $property->location_latitude    = $request->location_latitude;
         $property->location_longitude   = $request->location_longitude;
         $property->image                = $imagename;
+        $property->status               = $property->status;
         $property->description          = $request->description;
         $property->title                = $request->title;
         $property->user_id              = Auth::id();
@@ -238,7 +239,7 @@ class PropertiesController extends Controller
                     }
                     $propertyimage = Image::make($images);
                     /* insert watermark at bottom-right corner with 10px offset */
-                    $propertyimage->resize(750, 500)->insert(public_path('logo/logo-blue.png'), 'center');
+                    $propertyimage->resize(750, 500)->insert(public_path('logo/watermark-blue.png'), 'center');
                     $propertyimage->save();
                     Storage::disk('public')->put('property/gallery/'.$galimage['name'], $propertyimage);
 

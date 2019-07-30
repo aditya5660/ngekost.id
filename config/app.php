@@ -179,8 +179,8 @@ return [
         Yajra\DataTables\DataTablesServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
-        Yajra\Disqus\DisqusServiceProvider::class
-
+        Yajra\Disqus\DisqusServiceProvider::class,
+        App\Providers\BroadcastServiceProvider::class
 
     ],
 

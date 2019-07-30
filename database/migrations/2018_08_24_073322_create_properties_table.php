@@ -18,8 +18,8 @@ class CreatePropertiesTable extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->longtext('address');
-            $table->string('location_latitude');
-            $table->string('location_longitude');
+            $table->string('location_latitude')->nullable();
+            $table->string('location_longitude')->nullable();
             $table->string('provinces');
             $table->string('regencies');
             $table->string('districts');

@@ -83,9 +83,13 @@
                                 <ul class="amenities">
                                 <?php $fasilitas = explode('//', $property->amenities_id);  ?>
 
-                                    <?php foreach ($amenities as $key => $value) :  ?>
-                                    <li><i class="fa fa-check"></i> <?php if ($fasilitas = $value->id) { echo $value->name; }  ?></li>
+                                @foreach ($amenities as $item)
+                                    <?php foreach ($fasilitas as $key => $value) :  ?>
+                                    @if ($value == $item->id)
+                                        <?php echo '<li><i class="'.$item->icon.'"></i>'.$item->name.'</li>'?>
+                                    @endif
                                     <?php endforeach ?>
+                                @endforeach
 
                                 </ul>
                             </div>
@@ -224,14 +228,13 @@
                     <h4 class="modal-title" id="modalTitle"></h4>
                 </div>
                 <div class="modal-body">
-                <form id="" name="" action="{{route('property.booking')}}"class="form-horizontal" method="post">
+                <form id="donation" onsubmit="return submitForm();" class="form-horizontal" method="post">
 
                         @csrf
                         @method('post')
                         <div class="form-group">
                             <label for="name" class="col-sm-2 control-label">Property</label>
                             <div class="col-sm-12">
-
                                 <input type="hidden" name="property_id" id="property_id" value="{{$property->id}}">
                                 <input type="text" class="form-control" id="property_name" name="property_name" placeholder="{{$property->title}}" value="{{$property->title}}" disabled>
                             </div>
@@ -243,7 +246,6 @@
                                     <option value="1" <?php if($property->daily_price == null){ print 'disabled';} ?> >Harian - {{$property->daily_price}}</option>
                                     <option value="2" <?php if($property->monthly_price == null){ print 'disabled';} ?> >Bulanan - {{$property->monthly_price}}</option>
                                     <option value="3" <?php if($property->yearly_price == null){ print 'disabled';} ?> >Tahunan - {{$property->yearly_price}}</option>
-
                                 </select>
                             </div>
                         </div>
@@ -257,8 +259,8 @@
                             <label for="name" class="col-sm-6 control-label">Pembayaran</label>
                             <div class="col-sm-12">
                                 <select class="form-control" name="payments" id="payments">
-                                    <option value="1">Transfer Manual</option>
-                                    <option value="2">OVO </option>
+                                    <option value="1">Payment Gateway <span>powered by midtrans</span></option>
+                                    <option value="2" disabled>Cash On Delivery - Soon</option>
                                 </select>
                             </div>
                         </div>
@@ -274,7 +276,6 @@
     </div>
 @endsection
 @push('script')
-
 <script async src="https://static.addtoany.com/menu/page.js"></script>
     <script>
         function initMap() {
@@ -298,5 +299,35 @@
     </script>
 
 
-
+    <script src="{{ !config('services.midtrans.isProduction') ? 'https://app.sandbox.midtrans.com/snap/snap.js' : 'https://app.midtrans.com/snap/snap.js' }}" data-client-key="{{ config('services.midtrans.clientKey') }}"></script>
+    <script>
+    function submitForm() {
+        // Kirim request ajax
+        $.post("{{ route('booking.store') }}",
+        {
+            _method: 'POST',
+            _token: '{{ csrf_token() }}',
+            booking_range: $('#booking_range').val(),
+            start_booking_date: $('input#start_booking_date').val(),
+            property_id: $('input#property_id').val(),
+        },
+        function (data, status) {
+            snap.pay(data.snap_token, {
+                // Optional
+                onSuccess: function (result) {
+                    location.redirect({{route('users.transaction.index')}});
+                },
+                // Optional
+                onPending: function (result) {
+                    location.reload();
+                },
+                // Optional
+                onError: function (result) {
+                    location.reload();
+                }
+            });
+        });
+        return false;
+    }
+    </script>
 @endpush

@@ -97,6 +97,81 @@ class DatabaseSeeder extends Seeder
             'twitter'           => 'https://www.twitter.com/adt12',
             'linkedin'          => 'https://www.linkedin.com/in/adityaproject',
         ]);
-
+        DB::table('categories')->insert([
+            [
+                'category_name' => 'Kost Putra',
+                'slug'          => 'kost-putra'
+            ],
+            [
+                'category_name' => 'Kost Putri',
+                'slug'          => 'kost-putri'
+            ],
+            [
+                'category_name' => 'Kost Campur',
+                'slug'          => 'kost-putra'
+            ],
+            [
+                'category_name' => 'Kontrakan',
+                'slug'          => 'kontrakan'
+            ],
+            [
+                'category_name' => 'Apartment',
+                'slug'          => 'apartment'
+            ]
+        ]);
+        DB::table('amenities')->insert([
+            [
+                'name'          => 'Wifi',
+                'icon'          => 'fa fa-wifi'
+            ],
+            [
+                'name'          => 'Air Conditioner / AC',
+                'icon'          => 'fa fa-asterisk'
+            ],
+            [
+                'name'          => 'TV',
+                'icon'          => 'fa fa-tv'
+            ],
+            [
+                'name'          => 'Kamar Mandi Dalam',
+                'icon'          => 'fa fa-shower'
+            ],
+            [
+                'name'          => 'Kamar Mandi Luar',
+                'icon'          => 'fa fa-bath'
+            ],
+            [
+                'name'          => 'Kasur',
+                'icon'          => 'fa fa-bed'
+            ],
+            [
+                'name'          => 'Listrik Gratis',
+                'icon'          => 'fa fa-plug'
+            ],
+            [
+                'name'          => 'Listrik Token',
+                'icon'          => 'fa fa-plug'
+            ],
+            [
+                'name'          => 'Lemari Pakaian',
+                'icon'          => ''
+            ],
+            [
+                'name'          => 'Akses Kunci 24 Jam',
+                'icon'          => ''
+            ],
+            [
+                'name'          => 'Parkir Motor',
+                'icon'          => ''
+            ],
+            [
+                'name'          => 'Parkir Mobil',
+                'icon'          => ''
+            ],
+            [
+                'name'          => 'Dapur Bersama',
+                'icon'          => ''
+            ]
+        ]);
     }
 }

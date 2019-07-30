@@ -15,7 +15,7 @@ Transaction
                         <ul>
 
                             <li>
-                                
+
                             </li>
                         </ul>
                     </div>
@@ -25,88 +25,60 @@ Transaction
         <div class="row">
             <div class="col-12" style="font-size:12px;">
 
-                <table class="table table-bordered table-striped data-table" id="datatable" style="width:100%">
+                <table class="table table-bordered table-striped data-table display" id="datatable" style="width:100%">
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Property</th>
                             <th>Start Booking</th>
                             <th>Booking Range</th>
-                            <th>Payments</th>
+                            <th>Amount</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
                     </thead>
+                    <tbody>
+                        @foreach ($transaction as $item)
+                        {{-- @php
+
+                        @endphp --}}
+                        <tr>
+                            <td><code>{{$item->id}}</code></td>
+                            <td>{{$item->property->title}}</td>
+                            <td>{{$item->start_booking_date}}</td>
+                            <td>
+                                @if($item->booking_range == 1)
+                                    <a href="javascript:void(0)" style="font-size:12px;" class="btn btn-outline-success btn-xs">Harian</a>
+                                @elseif ($item->booking_range == 2)
+                                    <a href="javascript:void(0)" style="font-size:12px;" class="btn btn-outline-success btn-xs">Bulanan</a>
+                                @elseif ($item->booking_range == 3) {
+                                    <a href="javascript:void(0)" style="font-size:12px;" class="btn btn-outline-success btn-xs">Tahunan</a>
+                                @endif
+                            </td>
+                            <td>Rp. {{number_format($item->amount)}}</td>
+                            <td>{{ ucfirst($item->status) }}</td>
+                            <td >
+                                @if ($item->status == 'pending')
+                                <button class="btn btn-xs btn-success "  style="font-size:12px;" onclick="snap.pay('{{ $item->snap_token }}')"> Complete Payment</button>
+                                @endif
+                                <a  style="font-size:12px;" href="{{route('users.transaction.invoice',$item->id)}}"  data-original-title="Invoice" class="btn btn-primary btn-xs invBtn"><i class="fa fa-print"></i></a>
+                            </td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+
+
                 </table>
-            </div>
-        </div>
-        <div class="modal fade" id="ajaxModal" aria-hidden="true" style="z-index:10000">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="modalTitle"></h4>
-                    </div>
-                    <div class="modal-body">
-                        <form id="modalForm" name="modalForm" class="form-horizontal">
-                            @csrf
-                            <input type="hidden" name="category_id" id="category_id">
-                            <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">Name</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter Name" value="" maxlength="50" required="">
-                                </div>
-                            </div>
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Save changes
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
             </div>
         </div>
 @endsection
 
 
 @push('script')
+<script src="{{ !config('services.midtrans.isProduction') ? 'https://app.sandbox.midtrans.com/snap/snap.js' : 'https://app.midtrans.com/snap/snap.js' }}" data-client-key="{{ config('services.midtrans.clientKey') }}"></script>
 <script>
-$(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-      });
-      var table = $('.data-table').DataTable({
-          processing: true,
-          serverSide: true,
-          ajax: "{{ route('users.transaction.index') }}",
-          columns: [
-              {data: 'DT_RowIndex', name: 'DT_RowIndex'},
-              {data: 'property.title', name: 'property.title',orderable: false, searchable: false},
-              {data: 'start_booking_date', name: 'start_booking_date'},
-              {data: 'booking_range', name: 'booking_range'},
-              {data: 'payments', name: 'payments'},
-              {data: 'status', name: 'status'},
-              {data: 'action', name: 'action', orderable: false, searchable: false},
-          ]
-      });
-      $('body').on('click', '.deleteBtn', function () {
-          var id = $(this).data("id");
-          confirm("Are You sure want to delete !");
-          $.ajax({
-              type: "DELETE",
-              url: "{{ url('users/transaction') }}"+'/'+id,
-              success: function (data) {
-                  toastr.success('Successfully Canceled Transaction!', 'Success Alert', {timeOut: 5000});
-                  table.draw();
-
-              },
-              error: function (data) {
-                  toastr.danger('Error Canceled Transaction!', 'Error Alert', {timeOut: 5000});
-                  console.log('Error:', data);
-              }
-          });
-      });
-});
+$(document).ready( function () {
+    $('#datatable').DataTable();
+} );
 </script>
 @endpush

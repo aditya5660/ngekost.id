@@ -15,6 +15,8 @@
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "nesbot/carbon": "^2.20",
+        "pusher/pusher-php-server": "^4.0",
+        "veritrans/veritrans-php": "^1.2",
         "yajra/laravel-datatables-oracle": "^9.4",
         "yajra/laravel-disqus": "^1.1",
         "yoeunes/toastr": "^1.2"

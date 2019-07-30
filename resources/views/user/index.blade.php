@@ -116,28 +116,11 @@ User Dashboard - ngekost.id
                                             </thead>
                                             <tbody>
                                                 @foreach($transaction as $key => $item)
-                                                @php
-                                                            if ($item->status == 0) {
-                                                                $status = 'Belum Dibayar';
-                                                            } elseif ($item->status == 1) {
-                                                                $status = 'Menunggu Konfirmasi Pembayaran';
-                                                            } elseif ($item->status == 2) {
-                                                                $status = 'Pembayaran Diterima';
-                                                            } elseif ($item->status == 3) {
-                                                                $status = 'Approved by Property Owner';
-                                                            } elseif ($item->status == 4) {
-                                                                $status = 'Canceled by Property Owner';
-                                                            } elseif ($item->status == 5) {
-                                                                $status = 'Transaksi Selesai';
-                                                            } elseif ($item->status == 6) {
-                                                                $status = 'Canceled';
-                                                            }
-                                                @endphp
                                                 <tr>
                                                     <td>{{ ++$key }}.</td>
                                                     <td>{{ $item->property->title }}</td>
                                                     <td>{{ $item->owner->name }}</td>
-                                                    <td><button disabled="disabled" class="btn btn-xs btn-primary">{{ $status }}</button></td>
+                                                    <td><button disabled="disabled" class="btn btn-xs btn-primary">{{ ucfirst($item->status) }}</button></td>
                                                 </tr>
                                                 @endforeach
                                             </tbody>
