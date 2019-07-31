@@ -148,7 +148,8 @@ $(function () {
         scrollTitle: false,
         scrollImg: false,
         activeOverlay: false,
-        zIndex: 2147483647
+        zIndex: 9999
+
     });
 
     // Counter

@@ -343,6 +343,7 @@
         </div>
     </div>
 </div>
+{{ TawkTo::widgetCode() }}
 <!-- Partners end -->
 @endsection
 @push('script')

@@ -31,8 +31,7 @@ Transaction
                             <th>No</th>
                             <th>Property</th>
                             <th>Users</th>
-                            <th>Subtotal</th>
-                            <th>Payments</th>
+                            <th>Amount</th>
                             <th>Status</th>
                             <th>Action</th>
                         </tr>
@@ -40,31 +39,7 @@ Transaction
                 </table>
             </div>
         </div>
-        <div class="modal fade" id="ajaxModal" aria-hidden="true" style="z-index:10000">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title" id="modalTitle"></h4>
-                    </div>
-                    <div class="modal-body">
-                        <form id="modalForm" name="modalForm" class="form-horizontal">
-                            @csrf
-                            <input type="hidden" name="category_id" id="category_id">
-                            <div class="form-group">
-                                <label for="name" class="col-sm-2 control-label">Name</label>
-                                <div class="col-sm-12">
-                                    <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Enter Name" value="" maxlength="50" required="">
-                                </div>
-                            </div>
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary" id="saveBtn" value="create">Save changes
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 @endsection
 
 
@@ -84,8 +59,7 @@ $(function () {
               {data: 'DT_RowIndex', name: 'DT_RowIndex'},
               {data: 'property.title', name: 'property.title',orderable: false, searchable: false},
               {data: 'user.name', name: 'user.name'},
-              {data: 'subtotal', name: 'subtotal'},
-              {data: 'payments', name: 'payments'},
+              {data: 'amount', name: 'amount'},
               {data: 'status', name: 'status'},
               {data: 'action', name: 'action', orderable: false, searchable: false},
           ]

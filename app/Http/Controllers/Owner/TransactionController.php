@@ -16,7 +16,7 @@ class TransactionController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Transaction::latest()->with('property','user')->where('status','!=',0)->where('status','!=',1)->where('owner_id',Auth::user()->id)->get();
+            $data = Transaction::latest()->with('property','user')->where('status','!=','pending')->where('status','!=',1)->where('owner_id',Auth::user()->id)->get();
 
             return Datatables::of($data)
                     ->addIndexColumn()
@@ -47,7 +47,6 @@ class TransactionController extends Controller
                         }
                     })
                     ->addColumn('action', function($row){
-
                         $btn = ' <a  style="font-size:12px;" data-id="'.$row->id.'" data-status="3"  data-original-title="Invoice" class="btn btn-success btn-xs acceptBtn">Terima</a>';
                         $btn = $btn. ' <a href="javascript:void(0)" style="font-size:12px;" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-xs deleteBtn">Tolak</a>';
                         $btn = $btn. ' <a  style="font-size:12px;" href="'.route('owner.transaction.invoice',$row->id).'"  data-original-title="Invoice" class="btn btn-primary btn-xs invBtn"><i class="fa fa-print"></i></a>';

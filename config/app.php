@@ -180,8 +180,8 @@ return [
         Intervention\Image\ImageServiceProvider::class,
         Yoeunes\Toastr\ToastrServiceProvider::class,
         Yajra\Disqus\DisqusServiceProvider::class,
-        App\Providers\BroadcastServiceProvider::class
-
+        App\Providers\BroadcastServiceProvider::class,
+        Emotality\TawkTo\TawkToServiceProvider::class,
     ],
 
     /*
@@ -236,6 +236,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Toastr'=> Yoeunes\Toastr\ToastrServiceProvider::class,
         Barryvdh\Cors\ServiceProvider::class,
+        'TawkTo' => Emotality\TawkTo\Facades\TawkTo::class,
     ],
 
 ];

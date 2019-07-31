@@ -100,6 +100,6 @@
     </div>
     <br>
     <br>
-
+    {{ TawkTo::widgetCode() }}
     <!-- Helping sentar end -->
 @endsection

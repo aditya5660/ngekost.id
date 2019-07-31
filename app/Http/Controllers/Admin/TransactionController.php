@@ -20,39 +20,12 @@ class TransactionController extends Controller
 
             return Datatables::of($data)
                     ->addIndexColumn()
-                    ->addColumn('payments',function($row){
-                        if ($row->payments == 1) {
-                            return '<a href="javascript:void(0)" style="font-size:12px;" class="btn btn-primary btn-xs">Manual Transfer</a>';
-                        } elseif ($row->payments == 2) {
-                            return '<a href="javascript:void(0)" style="font-size:12px;" class="btn btn-primary btn-xs">OVO Payments</a>';
-                        }
-                    })
-                    ->addColumn('status',function($row){
-                        if ($row->status === 0) {
-                            return '<a href="javascript:void(0)" style="font-size:12px;" class="btn btn-outline-danger btn-xs">Belum Dibayar</a>';
-                        } elseif ($row->status === 1) {
-                            return '<a href="javascript:void(0)" style="font-size:12px;" class="btn btn-outline-danger btn-xs">Menunggu Konfirmasi Pembayaran</a>';
-                        } elseif ($row->status === 2) {
-                            return '<a href="javascript:void(0)" style="font-size:12px;" class="btn btn-outline-success btn-xs">Pembayaran Diterima</a>';
-                        } elseif ($row->status === 3) {
-                            return '<a href="javascript:void(0)" style="font-size:12px;" class="btn btn-outline-success btn-xs">Approved by Property Owner</a>';
-                        } elseif ($row->status === 4) {
-                            return '<a href="javascript:void(0)" style="font-size:12px;" class="btn btn-outline-success btn-xs">Canceled by Property Owner</a>';
-                        } elseif ($row->status === 5) {
-                            return '<a href="javascript:void(0)" style="font-size:12px;" class="btn btn-outline-success btn-xs">Transaksi Selesai</a>';
-                        } elseif ($row->status === 6) {
-                            return '<a href="javascript:void(0)" style="font-size:12px;" class="btn btn-outline-success btn-xs">Canceled</a>';
-                        }
-                    })
                     ->addColumn('action', function($row){
-
-
-                        $btn = ' <a  style="font-size:12px;" data-id="'.$row->id.'"  data-original-title="Invoice" class="btn btn-success btn-xs acceptBtn">Terima Pembayaran</a>';
-                        $btn = $btn. ' <a  style="font-size:12px;" href="'.route('admin.transaction.invoice',$row->id).'"  data-original-title="Invoice" class="btn btn-primary btn-xs invBtn"><i class="fa fa-print"></i></a>';
+                        $btn = ' <a  style="font-size:12px;" href="'.route('admin.transaction.invoice',$row->id).'"  data-original-title="Invoice" class="btn btn-primary btn-xs invBtn"><i class="fa fa-print"></i></a>';
                         $btn = $btn. ' <a href="javascript:void(0)" style="font-size:12px;" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-xs deleteBtn"><i class="fa fa-trash"></i></a>';
                         return $btn;
                     })
-                    ->rawColumns(['action','status','payments'])
+                    ->rawColumns(['action'])
                     ->make(true);
         }
         return view('admin.transaction.index', compact('data'));
