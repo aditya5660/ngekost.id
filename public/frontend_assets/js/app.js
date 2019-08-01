@@ -2,6 +2,9 @@ $(function () {
 
     'use strict';
 
+    const baseURL = "http://localhost/laravel/ngekost.id/public/logo/";
+    const imgURL = "https://ngekost.id/public/logo/";
+
     // Showing page loader
     $(window).on('load', function () {
         setTimeout(function () {
@@ -33,7 +36,7 @@ $(function () {
     $('.portfolio-item').magnificPopup({
         delegate: 'a',
         type: 'image',
-        gallery:{enabled:true}
+        gallery: { enabled: true }
     });
 
 
@@ -54,33 +57,31 @@ $(function () {
         placedDashboard();
     });
 
-    function adjustHeader()
-    {
+    function adjustHeader() {
         var windowWidth = $(window).width();
-        if(windowWidth > 992) {
+        if (windowWidth > 992) {
             if ($(document).scrollTop() >= 100) {
-                if($('.header-shrink').length < 1) {
+                if ($('.header-shrink').length < 1) {
                     $('.sticky-header').addClass('header-shrink');
                 }
-                if($('.do-sticky').length < 1) {
-                    $('.logo img').attr('src', 'http://127.0.0.1:8000/logo/logo-blue.png');
+                if ($('.do-sticky').length < 1) {
+                    $('.logo img').attr('src', baseURL + 'logo-blue.png');
                 }
             }
             else {
                 $('.sticky-header').removeClass('header-shrink');
-                if($('.do-sticky').length < 1 && $('.fixed-header').length == 0 && $('.fixed-header2').length == 0) {
-                    $('.logo img').attr('src', 'http://127.0.0.1:8000/logo/logo-white.png');
+                if ($('.do-sticky').length < 1 && $('.fixed-header').length == 0 && $('.fixed-header2').length == 0) {
+                    $('.logo img').attr('src', baseURL + 'logo-white.png');
                 } else {
-                    $('.logo img').attr('src', 'http://127.0.0.1:8000/logo/logo-blue.png');
+                    $('.logo img').attr('src', baseURL + 'logo-blue.png');
                 }
             }
         } else {
-            $('.logo img').attr('src', 'http://127.0.0.1:8000/logo/logo-blue.png');
+            $('.logo img').attr('src', baseURL + 'logo-blue.png');
         }
     }
 
-    function doSticky()
-    {
+    function doSticky() {
         if ($(document).scrollTop() > 40) {
             $('.do-sticky').addClass('sticky-header');
             $('.do-sticky').addClass('header-shrink');
@@ -148,8 +149,7 @@ $(function () {
         scrollTitle: false,
         scrollImg: false,
         activeOverlay: false,
-        zIndex: 9999
-
+        zIndex: 100
     });
 
     // Counter
@@ -169,38 +169,38 @@ $(function () {
                 $(this).prop('Counter', 0).animate({
                     Counter: $(this).text()
                 }, {
-                    duration: 3000,
-                    easing: 'swing',
-                    step: function (now) {
-                        $(this).text(Math.ceil(now));
-                    }
-                });
+                        duration: 3000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(Math.ceil(now));
+                        }
+                    });
             }
         });
     });
 
 
     // Countdown activation
-    $( function() {
+    $(function () {
         // Add background image
         //$.backstretch('../img/nature.jpg');
         var endDate = "December  27, 2019 15:03:25";
         $('.countdown.simple').countdown({ date: endDate });
         $('.countdown.styled').countdown({
             date: endDate,
-            render: function(data) {
+            render: function (data) {
                 $(this.el).html("<div>" + this.leadingZeros(data.days, 3) + " <span>Days</span></div><div>" + this.leadingZeros(data.hours, 2) + " <span>Hours</span></div><div>" + this.leadingZeros(data.min, 2) + " <span>Minutes</span></div><div>" + this.leadingZeros(data.sec, 2) + " <span>Seconds</span></div>");
             }
         });
         $('.countdown.callback').countdown({
             date: +(new Date) + 10000,
-            render: function(data) {
+            render: function (data) {
                 $(this.el).text(this.leadingZeros(data.sec, 2) + " sec");
             },
-            onEnd: function() {
+            onEnd: function () {
                 $(this.el).addClass('ended');
             }
-        }).on("click", function() {
+        }).on("click", function () {
             $(this).removeClass('ended').data('countdown').update(+(new Date) + 10000).start();
         });
 
@@ -216,8 +216,8 @@ $(function () {
         $(this).append("" +
             "<span class='min-value'></span> " +
             "<span class='max-value'></span>" +
-            "<input class='current-min' type='hidden' name='"+minName+"'>" +
-            "<input class='current-max' type='hidden' name='"+maxName+"'>"
+            "<input class='current-min' type='hidden' name='" + minName + "'>" +
+            "<input class='current-max' type='hidden' name='" + maxName + "'>"
         );
         $(this).slider({
             range: true,
@@ -228,7 +228,7 @@ $(function () {
                 event = event;
                 var currentMin = parseInt(ui.values[0], 10);
                 var currentMax = parseInt(ui.values[1], 10);
-                $(this).children(".min-value").text( currentMin + " " + unit);
+                $(this).children(".min-value").text(currentMin + " " + unit);
                 $(this).children(".max-value").text(currentMax + " " + unit);
                 $(this).children(".current-min").val(currentMin);
                 $(this).children(".current-max").val(currentMax);
@@ -237,7 +237,7 @@ $(function () {
 
         var currentMin = parseInt($(this).slider("values", 0), 10);
         var currentMax = parseInt($(this).slider("values", 1), 10);
-        $(this).children(".min-value").text( currentMin + " " + unit);
+        $(this).children(".min-value").text(currentMin + " " + unit);
         $(this).children(".max-value").text(currentMax + " " + unit);
         $(this).children(".current-min").val(currentMin);
         $(this).children(".current-max").val(currentMax);
@@ -254,7 +254,7 @@ $(function () {
 
     // Carousel with partner initialization
     (function () {
-        $('#ourPartners').carousel({interval: 3600});
+        $('#ourPartners').carousel({ interval: 3600 });
     }());
 
     (function () {
@@ -306,7 +306,7 @@ $(function () {
     });
 
     // Dropdown activation
-    $('.dropdown-menu a.dropdown-toggle').on('click', function(e) {
+    $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
         if (!$(this).next().hasClass('show')) {
             $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
         }
@@ -314,7 +314,7 @@ $(function () {
         $subMenu.toggleClass('show');
 
 
-        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function(e) {
+        $(this).parents('li.nav-item.dropdown.show').on('hidden.bs.dropdown', function (e) {
             $('.dropdown-submenu .show').removeClass("show");
         });
 
@@ -324,13 +324,13 @@ $(function () {
 
     // Full  Page Search Activation
     $(function () {
-        $('a[href="#full-page-search"]').on('click', function(event) {
+        $('a[href="#full-page-search"]').on('click', function (event) {
             event.preventDefault();
             $('#full-page-search').addClass('open');
             $('#full-page-search > form > input[type="search"]').focus();
         });
 
-        $('#full-page-search, #full-page-search button.close').on('click keyup', function(event) {
+        $('#full-page-search, #full-page-search button.close').on('click keyup', function (event) {
             if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
                 $(this).removeClass('open');
             }
@@ -358,7 +358,7 @@ $(function () {
     });
 
 
-    $(".dropdown.btns .dropdown-toggle").on('click', function() {
+    $(".dropdown.btns .dropdown-toggle").on('click', function () {
         $(this).dropdown("toggle");
         return false;
     });
@@ -426,7 +426,7 @@ $(function () {
         $('#map').css('height', $(this).height() - 110);
         if ($(this).width() > 768) {
             $(".map-content-sidebar").mCustomScrollbar(
-                {theme: "minimal-dark"}
+                { theme: "minimal-dark" }
             );
             $('.map-content-sidebar').css('height', $(this).height() - 110);
         } else {

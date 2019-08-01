@@ -3,7 +3,7 @@
     Register
 @endsection
 @section('content')
-<div class="contact-section overview-bgi">
+<div class="contact-section ">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -22,7 +22,7 @@
                     <!-- details -->
                     <div class="details">
                         <!-- Logo-->
-                        <a href="">
+                        <a href="{{route('home')}}">
                             <img src="{{asset('logo/logo-blue.png')}}" class="cm-logo" alt="black-logo">
                         </a>
                         <!-- Name -->
@@ -78,12 +78,12 @@
                             </div>
                         </form>
                         <!-- Social List -->
-                        <ul class="social-list clearfix">
+                        <!-- <ul class="social-list clearfix">
                             <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#" class="google-bg"><i class="fa fa-google-plus"></i></a></li>
                             <li><a href="#" class="linkedin-bg"><i class="fa fa-linkedin"></i></a></li>
-                        </ul>
+                        </ul> -->
                     </div>
                     <!-- Footer -->
                     <div class="footer">

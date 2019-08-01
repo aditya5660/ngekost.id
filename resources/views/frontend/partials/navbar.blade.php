@@ -40,16 +40,16 @@
                     </li>
                     @else
                     <li class="nav-item dropdown {{ Request::is('/') ? 'active' : '' }}">
-                        <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ ucfirst(Auth::user()->name) }}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             @if(Auth::user()->role->id == 1)
-                                <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ route('admin.dashboard') }}">Dashboard</a></li>
                             @elseif(Auth::user()->role->id == 2)
-                                <li><a class="dropdown-item" href="{{ route('owner.dashboard') }}">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ route('owner.dashboard') }}">Dashboard</a></li>
                             @elseif(Auth::user()->role->id == 3)
-                                <li><a class="dropdown-item" href="{{ route('users.dashboard') }}">Profile</a></li>
+                                <li><a class="dropdown-item" href="{{ route('users.dashboard') }}">Dashboard</a></li>
                             @endif
                             <li>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -64,11 +64,6 @@
                         </ul>
                     </li>
                     @endguest
-
-
-
-
-
                 </ul>
             </div>
         </nav>

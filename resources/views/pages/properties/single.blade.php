@@ -29,7 +29,7 @@
                     <!-- Heading properties 3 start -->
                     <div class="heading-properties-3">
                         <h1>{{ $property->title }}</h1>
-                    <div class="mb-30"><span class="property-price"> {{ $property->monthly_price }} / Bulan</span> <span class="rent">ADA {{ $property->available_room }}KAMAR </span> <span class="location"><i class="flaticon-pin"></i>{{ $property->address }},{{ $property->district->name }},{{ $property->regency->name }},{{ $property->province->name }}</span></div>
+                    <div class="mb-30"><span class="property-price">Rp {{ number_format($property->monthly_price) }} / Bulan</span> <span class="rent">ADA {{ $property->available_room }} KAMAR </span> <span class="location"><i class="flaticon-pin"></i>{{ $property->address }},{{ $property->district->name }},{{ $property->regency->name }},{{ $property->province->name }}</span></div>
                     </div>
                 </div>
             </div>
@@ -70,9 +70,9 @@
                             <ul class="amenities">
                                 <li>Tipe Kost   = {{ $property->category->category_name  }}</li>
                                 <li>Ukuran Kamar  = {{ $property->p_room_size  }}</li>
-                                <li>Harga Harian  = {{ $property->daily_price  }} ,-</li>
-                                <li>Harga Bulanan  = {{ $property->monthly_price  }} ,-</li>
-                                <li>Harga Tahunan  = {{ $property->yearly_price }} ,-</li>
+                                <li>Harga Harian  = Rp {{ number_format($property->daily_price)  }} ,-</li>
+                                <li>Harga Bulanan  = Rp {{ number_format($property->monthly_price)  }} ,-</li>
+                                <li>Harga Tahunan  = Rp {{ number_format($property->yearly_price) }} ,-</li>
                             </ul>
                         </p>
                         <p><?= $property->description  ?></p>
@@ -111,7 +111,7 @@
                     <div class="col-lg-12" style="display:flex;">
                     @guest
                     <div class="send-btn ">
-                    <a class="btn btn-md btn-primary" href="{{route('login')}}"> Login to Booking</a>
+                    <a class="btn btn-md btn-primary" href="{{route('login')}}"> Login to Chat & Booking</a>
                     </div>
                     @else
                         <div class="send-btn " style="margin-right:10px;">
@@ -278,8 +278,12 @@
             </div>
         </div>
     </div>
-
-    <div class="floating-wpp"></div>
+    @guest
+    @else
+        @if(!$property->user->phone == null )
+            <div class="floating-wpp"></div>
+        @endif
+    @endguest
 @endsection
 @push('script')
     {{-- Tombol Share --}}

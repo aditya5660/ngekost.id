@@ -101,7 +101,7 @@ class PropertiesController extends Controller
         $property->l_room_size          = $request->l_room_size;
         $property->daily_price          = $request->daily_price;
         $property->monthly_price        = $request->monthly_price;
-        $property->yearly_price     = $request->yearly_price;
+        $property->yearly_price         = $request->yearly_price;
         $property->provinces            = $request->provinces;
         $property->address              = $request->address;
         $property->regencies            = $request->regencies;
@@ -115,12 +115,9 @@ class PropertiesController extends Controller
         $property->user_id              = Auth::id();
         $property->amenities_id         = $amenities;
         $property->featured             = 0;
-        $property->status             = 0;
+        $property->status               = 0;
 
         $property->save();
-
-
-
 
         $gallary = $request->file('gallaryimage');
 

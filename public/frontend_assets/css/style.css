@@ -694,7 +694,7 @@ input[type=checkbox]:checked + label:before {
 
 /** Main header start **/
 .main-header{
-    box-shadow: 0 0 8px 0 rgba(0,0,0,.12);
+    /* box-shadow: 0 0 8px 0 rgba(0,0,0,.12); */
 }
 
 .main-header .logo {
@@ -718,7 +718,7 @@ input[type=checkbox]:checked + label:before {
     position: absolute;
     z-index: 9;
     width: 100%;
-    border-bottom: 1px solid rgba(220, 220, 220, .2)
+    /* border-bottom: 1px solid rgba(220, 220, 220, .2); */
 }
 
 .main-header .navbar-expand-lg .navbar-nav .nav-link {
@@ -1104,14 +1104,16 @@ input[type=checkbox]:checked + label:before {
 #search-style-2{
     transition: all 0.4s;
     position: absolute;
-    bottom: -85px;
+    bottom: -50px;
     width: 100%;
+
 }
 
 .ssa2{
     box-shadow: 0 0 8px 0 rgba(0,0,0,.12);
     background: #fff;
-    padding: 30px 30px 0;
+    padding: 25px 30px 0;
+    border-radius: 12px;
 }
 
 .search-area {
@@ -1323,7 +1325,7 @@ input[type=checkbox]:checked + label:before {
 }
 
 .inline-search-area .form-control{
-    border-right: solid 1px #5a5a5a !important;
+    border-right: none;
 }
 
 .isa-2{
@@ -2874,7 +2876,11 @@ footer {
 
 /** Contact section start **/
 .contact-section {
-    background: rgba(0, 0, 0, 0.04) url(../img/banner/banner-2.jpg) top left repeat;
+    /* background: rgba(0, 0, 0, 0.04) url(../img/banner/banner-2.jpg) top left repeat; */
+    background-color:#f9f9fa;
+    /* background-image: linear-gradient(to right,#00a6ff, #1584c0); */
+
+
     background-size: cover;
     top: 0;
     width: 100%;
@@ -2885,11 +2891,13 @@ footer {
 }
 
 .form-content-box {
-    max-width: 400px;
-    box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 1px;
-    color: #7c7c7c;
-    margin: 60px auto;
+    max-width: 380px;
+
+    margin: 12% auto;
     text-align: center;
+    -webkit-box-shadow: 0px 3px 10px -3px #777;
+    -moz-box-shadow: 0px 3px 10px -3px #777;
+    box-shadow: 0px 3px 10px -3px #777;
 }
 
 .form-content-box .form-group {
@@ -2900,6 +2908,8 @@ footer {
     padding: 30px 30px;
     background: #fff;
     border-radius: 5px 5px 0 0;
+
+
 }
 
 .form-content-box .checkbox label::before {
@@ -3968,7 +3978,7 @@ footer {
 
 /** Sub Banner start **/
 .sub-banner {
-    background: rgba(0, 0, 0, 0.04) url(../img/banner/banner-3.jpg) top left repeat;
+    background: rgba(0, 0, 0, 0.04) url(../img/banner/banner.svg) top left repeat;
     background-size: cover;
     height: 355px;
     background-position: center center;
@@ -5721,7 +5731,8 @@ footer {
         top: 0px;
         z-index: 999;
         width: 100%;
-        border-bottom: 1px solid rgba(220, 220, 220, .2);
+        /* border-bottom: 1px solid rgba(220, 220, 220, .2); */
+
     }
 
     .sticky-header .nav-link::after {
@@ -6764,6 +6775,7 @@ footer {
 
     .banner-max-height img{
         max-height: 300px;
+
     }
 }
 

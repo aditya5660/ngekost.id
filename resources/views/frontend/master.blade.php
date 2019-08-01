@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="zxx">
 
-<!-- Mirrored from themevessel-item.s3-website-us-east-1.amazonaws.com/neer/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 29 Apr 2019 14:43:34 GMT -->
+
 <head>
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -13,7 +13,7 @@
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    
+
     <!-- External CSS libraries -->
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets/css/bootstrap.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('frontend_assets/css/animate.min.css')}}">
@@ -45,14 +45,7 @@
 @yield('content')
 
 @include('frontend.partials.footer')
-<!-- Full Page Search -->
-<div id="full-page-search">
-    <button type="button" class="close">×</button>
-    <form action="http://themevessel-item.s3-website-us-east-1.amazonaws.com/neer/index.html#">
-        <input type="search" value="" placeholder="type keyword(s) here" />
-        <button type="submit" class="btn btn-sm button-theme">CARI</button>
-    </form>
-</div>
+
 
 <script src="{{ asset('frontend_assets/js/jquery-2.2.0.min.js')}}"></script>
 <script src="{{ asset('frontend_assets/js/popper.min.js')}}"></script>

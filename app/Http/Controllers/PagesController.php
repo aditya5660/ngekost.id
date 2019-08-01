@@ -52,7 +52,7 @@ class PagesController extends Controller
                     ->where('category_id', $property->category_id)
                     ->where('provinces', $property->provinces)
                     ->where('id', '!=' , $property->id)
-                    ->take(5)->get();
+                    ->take(2)->get();
         $recentproperty = Property::latest()
                     ->where('id', '!=' , $property->id)
                     ->take(5)->get();
@@ -117,9 +117,7 @@ class PagesController extends Controller
         $settings = Setting::first();
         return view('pages.blog.single', compact('post', 'recentproperty','postcategory','recentpost','settings'));
     }
-
-
-
+    
     // CONATCT PAGE
     public function about()
     {
