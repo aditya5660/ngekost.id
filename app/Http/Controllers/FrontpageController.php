@@ -14,6 +14,7 @@ use App\Transaction;
 use App\Post;
 use App\Setting;
 use DB;
+use Carbon\Carbon as Carbon;
 
 class FrontpageController extends Controller
 {

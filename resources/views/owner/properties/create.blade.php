@@ -134,22 +134,22 @@
                         </div>
                         <h4 class="bg-grea-3">Fasilitas  <span style="font-size:10px;"><i>please check one </i></span></h4>
                         <div class="row pad-20">
-                            <div class="search-contents-sidebar">
-                                <div class="col-lg-12 col-md-12 col-sm-12">
+
+                                @foreach ($amenities as $item)
+                                <div class="col-lg-3 col-md-4 col-sm-6">
                                     <div class="checkbox checkbox-theme checkbox-circle">
-                                        @foreach ($amenities as $item)
                                         <input id="{{ $item->id }}" name="amenities[]" type="checkbox"
                                             value="{{ $item->id }}" >
                                         <label for="{{ $item->id }}">{{$item->name }} </label>
-                                        @endforeach
                                     </div>
                                 </div>
-                            </div>
+                                @endforeach
+
                         </div>
                         <h4 class="bg-grea-3">Description*</h4>
                         <div class="row pad-20">
                             <div class="col-lg-12">
-                                <input class="input-text" name="description" id="description" ></input>
+                                <input class="input-text" name="description" id="description" required></input>
                             </div>
                         </div>
                         <h4 class="bg-grea-3">Featured Image*</h4>
@@ -158,7 +158,7 @@
                         </div>
                         <h4 class="bg-grea-3">Gallery Image <span style="font-size:10px;"><i>you can select multiple image</i></span></h4>
                         <div class="row pad-20">
-                            <input id="input-id" type="file" name="gallaryimage[]" class="file" data-preview-file-type="text" multiple>
+                            <input id="input-id" type="file" name="gallaryimage[]" class="file" data-preview-file-type="text" multiple required>
                         </div>
                         <div class="col-md-6">
                             <button class="btn btn-md button-theme" type="submit" name="btn" id="saveBtn">
@@ -209,18 +209,18 @@
             tinyMCE.baseURL = '{{asset('vendor/tinymce')}}';
         });
 
-    var daily_price = document.getElementById('daily_price');
-    var monthly_price = document.getElementById('monthly_price');
-    var yearly_price = document.getElementById('yearly_price');
-    daily_price.addEventListener('keyup', function (e) {
-        daily_price.value = formatRupiah(this.value, 'Rp. ');
-    });
-    monthly_price.addEventListener('keyup', function (e) {
-        monthly_price.value = formatRupiah(this.value, 'Rp. ');
-    });
-    yearly_price.addEventListener('keyup', function (e) {
-        yearly_price.value = formatRupiah(this.value, 'Rp. ');
-    });
+    // var daily_price = document.getElementById('daily_price');
+    // var monthly_price = document.getElementById('monthly_price');
+    // var yearly_price = document.getElementById('yearly_price');
+    // daily_price.addEventListener('keyup', function (e) {
+    //     daily_price.value = formatRupiah(this.value, 'Rp. ');
+    // });
+    // monthly_price.addEventListener('keyup', function (e) {
+    //     monthly_price.value = formatRupiah(this.value, 'Rp. ');
+    // });
+    // yearly_price.addEventListener('keyup', function (e) {
+    //     yearly_price.value = formatRupiah(this.value, 'Rp. ');
+    // });
     // Ajax AutoSelect Regencies
     $(document).ready(function () {
         $('select[name="provinces"]').on('change', function () {

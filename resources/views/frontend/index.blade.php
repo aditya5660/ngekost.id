@@ -30,13 +30,12 @@
                 @endforeach
             @else
             <div class="carousel-item banner-max-height active">
-                <img class="d-block w-100" src="{{Storage::url('slider/banner-1.png')}}" alt="banner">
+                <img class="d-block w-100 img-fluid" src="{{ asset('frontend_assets/img/banner/banner4.jpg') }}" alt="test">
                 <div class="carousel-caption banner-slider-inner d-flex h-100 text-center">
                     <div class="carousel-content container">
                         <div class="text-left">
                             <h1>Cari Kost? ya di Ngekost.id</h1>
-                            <p>
-                            </p>
+                            <p></p>
                         </div>
                     </div>
                 </div>
@@ -289,14 +288,14 @@
                         <div class="blog-photo">
                             <img src="{{Storage::url('posts/'.$post->image)}}" alt="blog" class="img-fluid">
                             <div class="date-box">
-
-                                <span>12</span>
+                            <span>{{$post->created_at->format('d')}}</span>
+                            <span>{{$post->created_at->format('M')}}</span>
                             </div>
                         </div>
                         <div class="detail">
                             <h3><a href="{{ route('blog.show',$post->slug) }}"><?= $post->title ?> </a></h3>
                             <div class="post-meta">
-                                <span><a href="#"><i class="flaticon-people"></i>Admin</a></span>
+                                <span><a href=""><i class="flaticon-people"></i>Admin</a></span>
                             </div>
                             <p><?= substr($post->body,0,150) ?></p>
                         </div>
@@ -317,32 +316,22 @@
 
 <!-- Blog end -->
 
-<!-- Partners strat -->
+{{-- <!-- Partners strat -->
 <div class="partners">
     <div class="container">
         <div class="slick-slider-area">
             <div class="row slick-carousel"
                 data-slick='{"slidesToShow": 5, "responsive":[{"breakpoint": 1024,"settings":{"slidesToShow": 3}}, {"breakpoint": 768,"settings":{"slidesToShow": 2}}]}'>
-                <div class="slick-slide-item"><img src="frontend_assets/img/brand/brand-1.png" alt="brand"
+                <div class="slick-slide-item"><img src="{{asset('frontend_assets/img/brand/brand-codeinaja.png')}}" alt="brand"
                         class="img-fluid"></div>
-                <div class="slick-slide-item"><img src="frontend_assets/img/brand/brand-2.png" alt="brand"
+                <div class="slick-slide-item"><img src="{{asset('frontend_assets/img/brand/brand-reseppawon.png')}}" alt="brand"
                         class="img-fluid"></div>
-                <div class="slick-slide-item"><img src="frontend_assets/img/brand/brand-3.png" alt="brand"
-                        class="img-fluid"></div>
-                <div class="slick-slide-item"><img src="frontend_assets/img/brand/brand-4.png" alt="brand"
-                        class="img-fluid"></div>
-                <div class="slick-slide-item"><img src="frontend_assets/img/brand/brand-1.png" alt="brand"
-                        class="img-fluid"></div>
-                <div class="slick-slide-item"><img src="frontend_assets/img/brand/brand-2.png" alt="brand"
-                        class="img-fluid"></div>
-                <div class="slick-slide-item"><img src="frontend_assets/img/brand/brand-3.png" alt="brand"
-                        class="img-fluid"></div>
-                <div class="slick-slide-item"><img src="frontend_assets/img/brand/brand-4.png" alt="brand"
-                        class="img-fluid"></div>
+
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+{{ TawkTo::widgetCode() }}
 <!-- Partners end -->
 @endsection
 @push('script')

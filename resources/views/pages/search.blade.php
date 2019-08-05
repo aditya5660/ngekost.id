@@ -136,7 +136,7 @@
         </div>
     </div>
     <!-- Properties details page end -->
-
+    {{ TawkTo::widgetCode() }}
 @endsection
 
 @push('script')

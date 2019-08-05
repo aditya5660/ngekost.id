@@ -15,10 +15,10 @@ Profile
                     <div class="breadcrumb-nav">
                         <ul>
                             <li>
-                                <a href="index.html">Index</a>
+                                <a href="">Index</a>
                             </li>
                             <li>
-                                <a href="dashboard.html">Dashboard</a>
+                                <a href="">Dashboard</a>
                             </li>
                             <li class="active">My Profile</li>
                         </ul>
@@ -70,9 +70,8 @@ Profile
                         </div>
                         <div class="col-lg-6 col-md-6">
                             <div class="form-group subject">
-                                <label>Phone</label>
-                                <input type="text" name="phone" id="phone" class="form-control"
-                                    value="{{ $user->phone }}">
+                                <label>Phone <span style="font-size:9px"> <i>example : 628XXXXXXXXXX</i> </span></label>
+                                    <input type="text" name="phone" id="phone" class="form-control" Placeholder=""value="{{ $user->phone }}" aria-describedby="basic-addon1">
                             </div>
                         </div>
                         <div class="col-lg-6 col-md-6">

@@ -30,7 +30,7 @@
                             <div class="col-md-6 col-sm-6 invoice-mb-30">
                                 <div class="order">Order #INV000{{$data->id}}</div>
                             </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
                                 <address class="address-info">
                                     <p class="strong">Property Info</p>
                                     <p>{{$property->title}}</p>
@@ -41,7 +41,7 @@
 
                                 </address>
                             </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
                                 <address class="address-info text-right">
                                     <p class="strong">Owner Info</p>
                                     <p>{{$property->user->name}}</p>
@@ -49,53 +49,12 @@
                                     <p>{{$property->user->phone}}</p>
                                 </address>
                             </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
-                                <address class="address-info">
-                                    <p class="strong">Payment Method:</p>
-                                    @php
-                                    if ($data->payments == 1) {
-                                        $payments = 'Transfer Manual';
-                                        $payments_method = 'BNI 0231033570';
-                                    } elseif($data->payments == 2) {
-                                        $payments = 'OVO Merchant';
-                                        $payments_method = 'OVO 085334376496';
-                                    }
-
-                                    @endphp
-                                    <p>{{$payments}}</p>
-                                    <p>{{$payments_method}}</p>
-                                    @if ($data->payments == 1)
-                                        <p></p>
-                                    @elseif($data->payments == 2)
-                                        <p><img src="{{asset('logo/ovo_payments.png')}}" alt="" width="200px"srcset=""></p>
-                                    @endif
-                                </address>
-                            </div>
-                            <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
                                 <address class="address-info text-right">
                                     <p class="strong">Invoice Date:</p>
                                     <p>{{$data->created_at}}</p>
-                                    <p class="strong">Invoice Status:</p>
-
-                                    @php
-                                        if ($data->status == 0) {
-                                            $status = 'Belum Dibayar';
-                                        } elseif ($data->status == 1) {
-                                            $status = 'Menunggu Konfirmasi Pembayaran';
-                                        } elseif ($data->status == 2) {
-                                            $status = 'Pembayaran Diterima';
-                                        } elseif ($data->status == 3) {
-                                            $status = 'Menunggu Konfirmasi Pemilik Property';
-                                        } elseif ($data->status == 4) {
-                                            $status = 'Approved by Property Owner';
-                                        } elseif ($data->status == 5) {
-                                            $status = 'Transaksi Selesai';
-                                        } elseif ($data->status == 6) {
-                                            $status = 'Canceled';
-                                        }
-
-                                    @endphp
-                                    <p>{{$status}}</p>
+                                    <p class="strong">Payment Status:</p>
+                                    <p>{{$data->status}}</p>
                                 </address>
                             </div>
                         </div>
@@ -128,15 +87,15 @@
                                             <td><strong>{{$data->id}}</strong></td>
                                             <td>{{$property->id}} - {{$property->title}}</td>
                                             <td class="text-center">{{$booking_range}}</td>
-                                            <td class="text-center">{{$data->subtotal}}</td>
-                                            <td class="text-right">{{$data->subtotal}}</td>
+                                            <td class="text-center">{{$data->amount}}</td>
+                                            <td class="text-right">{{$data->amount}}</td>
                                         </tr>
                                         <tr>
                                             <td class="no-line"></td>
                                             <td class="no-line"></td>
                                             <td class="no-line"></td>
                                             <td class="no-line text-center"><strong>Total</strong></td>
-                                            <td class="no-line text-right">{{$data->subtotal}}</td>
+                                            <td class="no-line text-right">{{$data->amount}}</td>
                                         </tr>
                                         </tbody>
                                     </table>
@@ -146,7 +105,7 @@
                     </div>
                 </div>
             </div>
-            <h4 style="font-size:10px;color:dimgray"><i> This Invoice Autogenerated from ngekost.id Payments System , No Signature Needed</i></h4>
+            <h4 style="font-size:10px;color:dimgray"><i> This Invoice Autogenerated from ngekost.id & Midtrans Payments System , No Signature Needed</i></h4>
         </form>
     </div>
 

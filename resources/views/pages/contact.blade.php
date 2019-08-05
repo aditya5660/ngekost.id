@@ -63,7 +63,7 @@
                                 <textarea id="message" name="message" class="materialize-textarea"></textarea>
                                 <label for="message">Message</label>
                             </div>
-                            
+
                             <button id="msgsubmitbtn" class="btn waves-effect waves-light indigo darken-4 btn-large" type="submit">
                                 <span>SEND</span>
                                 <i class="material-icons right">send</i>
@@ -144,6 +144,6 @@
 
             })
         })
-
+        {{ TawkTo::widgetCode() }}
     </script>
 @endsection

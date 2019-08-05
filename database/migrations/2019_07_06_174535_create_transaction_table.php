@@ -25,16 +25,18 @@ class CreateTransactionTable extends Migration
             $table->unsignedInteger('property_id')->nullable();
             $table->foreign('property_id')
                 ->on('properties')
-                ->references('id')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+                ->references('id');
+
             $table->unsignedInteger('owner_id')->nullable();
             $table->string('booking_range');
             $table->string('start_booking_date');
-            $table->string('subtotal');
-            $table->string('payments');
+
             $table->string('payment_slip')->nullable();
-            $table->integer('status');
+            $table->decimal('amount', 20, 2)->default(0);
+            $table->string('note')->nullable();
+            $table->string('status')->default('pending');
+            $table->string('snap_token')->nullable();
+
             $table->timestamps();
         });
     }

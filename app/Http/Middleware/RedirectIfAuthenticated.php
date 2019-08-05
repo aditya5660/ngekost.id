@@ -31,7 +31,6 @@ class RedirectIfAuthenticated
 
         }
         else {
-
             return $next($request);
         }
 
