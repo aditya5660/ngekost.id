@@ -47,7 +47,7 @@
                                     <div class="property-thumbnail">
                                         <a href="{{ route('property.show',$property->slug) }}" class="property-img">
                                         <div class="price-box"><span>{{$property->monthly_price}}</span> Per bulan</div>
-                                        <img class="d-block w-100" src="{{Storage::url('property/'.$property->image)}}" alt="{{ $property->title}}">
+                                        <img class="d-block w-100" src="{{asset('storage/property/'.$property->image)}}" alt="{{ $property->title}}">
                                         </a>
                                     </div>
                                     <div class="detail">
@@ -92,7 +92,7 @@
                                 @foreach($recentproperty as $recentproperty )
                                 <div class="media mb-4">
                                     <a class="pr-3" href="{{ route('property.show',$recentproperty->slug) }}">
-                                        <img class="media-object" src="{{Storage::url('property/'.$recentproperty->image)}}" alt="Img {{$recentproperty->slug}}"></a>
+                                        <img class="media-object" src="{{asset('storage/property/'.$recentproperty->image)}}" alt="Img {{$recentproperty->slug}}"></a>
                                     <div class="media-body align-self-center">
                                         <h5>
                                             <a href="{{ route('property.show',$recentproperty->slug) }}">{{ $recentproperty->title}} </a>

@@ -48,7 +48,7 @@
 
                             <div class="media mb-4">
                                 <a class="pr-3" href=" ">
-                                    <img class="media-object" src="{{Storage::url('posts/'.$recentpost->image)}}"
+                                    <img class="media-object" src="{{asset('storage/posts/'.$recentpost->image)}}"
                                         alt="Img">
                                 </a>
                                 <div class="media-body align-self-center">
@@ -93,7 +93,7 @@
                     <!-- Blog 1 start -->
                     <div class="blog-1 blog-big">
                         <div class="blog-photo">
-                            <img src="{{Storage::url('posts/'.$post->image)}}" alt="" class="img-fluid">
+                            <img src="{{asset('storage/posts/'.$post->image)}}" alt="" class="img-fluid">
                         </div>
                         <div class="detail">
                             <h3>

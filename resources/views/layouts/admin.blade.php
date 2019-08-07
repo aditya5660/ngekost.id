@@ -87,7 +87,7 @@
                             <li>
                                 <div class="dropdown btns">
                                     <a class="dropdown-toggle" data-toggle="dropdown">
-                                        <img src="{{Storage::url('users/'.auth()->user()->image)}}" alt="avatar">
+                                        <img src="{{asset('storage/users/'.auth()->user()->image)}}" alt="avatar">
                                         {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu">

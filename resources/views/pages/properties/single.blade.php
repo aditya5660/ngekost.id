@@ -40,7 +40,7 @@
                             <div class="carousel-inner">
                                 @foreach ($property->gallery as $key => $gallery)
                                     <div class="item carousel-item <?php ($key == 1) ? print 'active' : '' ;  ?>" data-slide-number="{{$gallery->id}}">
-                                        <img src="{{Storage::url('property/gallery/'.$gallery->name)}}" class="img-fluid" alt="slider-properties">
+                                        <img src="{{asset('storage/property/gallery/'.$gallery->name)}}" class="img-fluid" alt="slider-properties">
                                     </div>
                                 @endforeach
 
@@ -53,7 +53,7 @@
                                 @foreach ($property->gallery as $key => $gallery)
                                 <li class="list-inline-item <?php ($key == 1) ? print 'active' : '' ;  ?>">
                                 <a id="carousel-selector-0" class="selected" data-slide-to="{{$gallery->id}}" data-target="#propertiesDetailsSlider">
-                                        <img src="{{Storage::url('property/gallery/'.$gallery->name)}}" class="img-fluid" alt="properties-small">
+                                        <img src="{{asset('storage/property/gallery/'.$gallery->name)}}" class="img-fluid" alt="properties-small">
                                     </a>
                                 </li>
                                 @endforeach
@@ -136,7 +136,7 @@
                                             <a href="" class="property-img">
 
                                                 <div class="price-box"><span>{{ $relatedproperty->monthly_price }}</span> Per month</div>
-                                            <img class="d-block w-100" src="{{Storage::url('property/'.$relatedproperty->image)}}" alt="properties">
+                                            <img class="d-block w-100" src="{{asset('storage/property/'.$relatedproperty->image)}}" alt="properties">
                                             </a>
                                         </div>
                                         <div class="detail">
@@ -181,7 +181,7 @@
                                 @foreach($recentproperty as $recentproperty )
                                 <div class="media mb-4">
                                     <a class="pr-3" href="{{ route('property.show',$recentproperty->slug) }}">
-                                        <img class="media-object" src="{{Storage::url('property/'.$recentproperty->image)}}" alt="Img {{$recentproperty->slug}}"></a>
+                                        <img class="media-object" src="{{asset('storage/property/'.$recentproperty->image)}}" alt="Img {{$recentproperty->slug}}"></a>
                                     <div class="media-body align-self-center">
                                         <h5>
                                             <a href="{{ route('property.show',$recentproperty->slug) }}">{{ $recentproperty->title}} </a>
