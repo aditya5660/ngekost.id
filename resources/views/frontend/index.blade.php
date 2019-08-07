@@ -10,12 +10,11 @@
         <div class="carousel-inner">
 
             @if ($sliders = null )
-
                 @foreach ($sliders as $key => $item)
                 <div class="carousel-item banner-max-height @if ($key == 0)
                         {{ 'active'}}
                     @endif">
-                    <img class="d-block w-100" src="{{Storage::url('slider/'.$item->image)}}" alt="banner">
+                    <img class="d-block w-100" src="{{asset('storage/slider/'.$item->image)}}" alt="banner">
                     <div class="carousel-caption banner-slider-inner d-flex h-100 text-center">
                         <div class="carousel-content container">
                             <div class="text-left">
@@ -116,7 +115,7 @@
                                     @endif
                                 </div>
                                 <div class="price-box"><span>{{ $property->monthly_price }}</span> Per month</div>
-                            <img class="d-block w-100" src="{{Storage::url('property/'.$property->image)}}" alt="properties">
+                            <img class="d-block w-100" src="{{asset('storage/property/'.$property->image)}}" alt="properties">
                             </a>
                         </div>
                         <div class="detail">
@@ -286,7 +285,7 @@
                 <div class="slick-slide-item" >
                     <div class="blog-3">
                         <div class="blog-photo">
-                            <img src="{{Storage::url('posts/'.$post->image)}}" alt="blog" class="img-fluid">
+                            <img src="{{asset('storage/posts/'.$post->image)}}" alt="blog" class="img-fluid">
                             <div class="date-box">
                             <span>{{$post->created_at->format('d')}}</span>
                             <span>{{$post->created_at->format('M')}}</span>

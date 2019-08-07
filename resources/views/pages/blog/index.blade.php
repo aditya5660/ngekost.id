@@ -46,7 +46,7 @@
                             <div class="col-lg-6 col-md-6">
                                 <div class="blog-1">
                                     <div class="blog-photo">
-                                        <img src="{{Storage::url('posts/'.$item->image)}}" alt="small-blog" class="img-fluid">
+                                        <img src="{{asset('storage/posts/'.$item->image)}}" alt="small-blog" class="img-fluid">
                                         <div class="date-box">
                                         <span>{{$item->created_at->format('d')}}</span>{{$item->created_at->format('M')}}
                                         </div>
@@ -78,7 +78,7 @@
                                 @foreach($recentpost as $item )
                                 <div class="media mb-4">
                                     <a class="pr-3" href="{{ route('blog.show',$item->slug) }}">
-                                        <img class="media-object" src="{{Storage::url('posts/'.$item->image)}}" alt="Img {{$item->slug}}"></a>
+                                        <img class="media-object" src="{{asset('storage/posts/'.$item->image)}}" alt="Img {{$item->slug}}"></a>
                                     <div class="media-body align-self-center">
                                         <h5>
                                             <a href="{{ route('blog.show',$item->slug) }}">{{ $item->title}} </a>
