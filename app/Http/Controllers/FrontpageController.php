@@ -30,7 +30,7 @@ class FrontpageController extends Controller
         $propertycount  = Property::count();
         $usercount      = User::count();
         $transactioncount  = Transaction::count();
-        return view('frontend.index', compact('sliders','properties','posts','amenities','settings','propertycount','usercount','transactioncount'));
+        return view('frontend.index', ['sliders'=>$sliders,'properties'=>$properties,'posts'=>$posts,'amenities'=>$amenities,'settings'=>$settings,'propertycount'=>$propertycount,'usercount'=>$usercount,'transactioncount'=>$transactioncount]);
     }
 
     public function search(Request $request)
@@ -46,7 +46,7 @@ class FrontpageController extends Controller
                                     return $query->where('title', 'LIKE', '%'.$title.'%')->orWhere('address','LIKE','%'.$title.'%');
                                 })
                                 ->paginate(10);
-        return view('pages.search', compact('property','amenities','recentproperty','category','settings'));
+        return view('pages.search', ['property'=>$property,'amenities'=>$amenities,'recentproperty'=>$recentproperty,'category'=>$category,'settings'=>$settings]);
     }
     public function autocomplete(Request $request)
     {

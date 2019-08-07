@@ -56,7 +56,7 @@ class UserController extends Controller
                     ->make(true);
         }
 
-        return view('admin.user',compact('data'));
+        return view('admin.user',['data'=>$data]);
     }
 
 

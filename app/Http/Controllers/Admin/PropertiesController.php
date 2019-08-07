@@ -59,7 +59,7 @@ class PropertiesController extends Controller
                     ->rawColumns(['action','status','featured','created_at'])
                     ->make(true);
         }
-        return view('admin.properties',compact('category'));
+        return view('admin.properties',['category'=>$category]);
     }
 
     /**

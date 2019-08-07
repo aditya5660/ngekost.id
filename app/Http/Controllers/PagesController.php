@@ -37,7 +37,7 @@ class PagesController extends Controller
         $category = Category::get();
         $settings       = Setting::first();
 
-        return view('pages.properties.property', compact('property','recentproperty','category','amenities','settings'));
+        return view('pages.properties.property', ['property'=>$property,'recentproperty'=>$recentproperty,'category'=>$category,'amenities'=>$amenities,'settings'=>$settings]);
     }
 
 
@@ -63,7 +63,7 @@ class PagesController extends Controller
 
        // $cities = Property::select('city','city_slug')->distinct('city_slug')->get();
 
-        return view('pages.properties.single', compact('category','property','relatedproperty','recentproperty','amenities','settings'));
+        return view('pages.properties.single', ['category'=>$category,'property'=>$property,'relatedproperty'=>$relatedproperty,'recentproperty'=>$recentproperty,'amenities'=>$amenities,'settings'=>$settings]);
     }
     public function propertyCities($province_id){
         $property = Property::where('provinces',$province_id)->latest()->paginate(12);
@@ -72,7 +72,7 @@ class PagesController extends Controller
         $amenities = Amenities::get();
         $category = Category::get();
         $settings = Setting::first();
-        return view('pages.properties.property', compact('property','recentproperty','category','amenities','settings'));
+        return view('pages.properties.property', ['property'=>$property,'recentproperty'=>$recentproperty,'category'=>$category,'amenities'=>$amenities,'settings'=>$settings]);
     }
 
 
@@ -96,7 +96,7 @@ class PagesController extends Controller
         $recentpost = Post::latest()
                     ->take(4)->get();
         $settings = Setting::first();
-        return view('pages.blog.index', compact('posts','postcategory','recentpost','settings'));
+        return view('pages.blog.index', ['posts'=>$posts,'postcategory'=>$postcategory,'recentpost'=>$recentpost,'settings'=>$settings]);
     }
 
     public function blogshow($slug)
@@ -115,9 +115,9 @@ class PagesController extends Controller
             Session::put($blogkey,1);
         }
         $settings = Setting::first();
-        return view('pages.blog.single', compact('post', 'recentproperty','postcategory','recentpost','settings'));
+        return view('pages.blog.single', ['post'=>$post, 'recentproperty'=>$recentproperty,'postcategory'=>$postcategory,'recentpost'=>$recentpost,'settings'=>$settings]);
     }
-    
+
     // CONATCT PAGE
     public function about()
     {
@@ -125,7 +125,7 @@ class PagesController extends Controller
         $propertycount  = Property::count();
         $usercount      = User::count();
         $transactioncount  = Transaction::count();
-        return view('pages.about',compact('settings','propertycount','usercount','transactioncount'));
+        return view('pages.about',['settings'=>$settings,'propertycount'=>$propertycount,'usercount'=>$usercount,'transactioncount'=>$transactioncount]);
     }
 
 

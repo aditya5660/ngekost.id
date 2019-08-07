@@ -28,7 +28,7 @@ class TransactionController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('admin.transaction.index', compact('data'));
+        return view('admin.transaction.index', ['data'=>$data]);
     }
     public function invoice($id)
     {
