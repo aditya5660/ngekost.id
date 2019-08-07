@@ -33,7 +33,7 @@ class FavoritedPropertiesControllers extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('user.favorited-properties', compact('favoritedproperties'));
+        return view('user.favorited-properties', ['favoritedproperties'=>$favoritedproperties]);
     }
 
     /**

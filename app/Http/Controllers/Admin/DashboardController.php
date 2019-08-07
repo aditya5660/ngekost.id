@@ -29,13 +29,12 @@ class DashboardController extends Controller
         $transaction   = Transaction::with('property','user')->latest()->take(5)->get();
         $posts         = Post::latest()->take(5)->get();
 
-
-        return view('admin.index',compact('propertycount','properties','users','usercount','transaction','transactioncount','posts','postcount'));
+        return view('admin.index',['propertycount'=>$propertycount,'properties'=>$properties,'users'=>$users,'usercount'=>$usercount,'transaction'=>$transaction,'transactioncount'=>$transactioncount,'posts'=>$posts,'postcount'=>$postcount]);
     }
     public function profile()
     {
         $user = Auth::user();
-        return view('admin.profile', compact('user'));
+        return view('admin.profile', ['user'=>$user]);
     }
     function profileUpdate(Request $request)
     {

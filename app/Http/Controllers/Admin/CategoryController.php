@@ -26,7 +26,7 @@ class CategoryController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('admin.categories',compact('category'));
+        return view('admin.categories',['category'=>$category]);
     }
     public function store(Request $request)
     {

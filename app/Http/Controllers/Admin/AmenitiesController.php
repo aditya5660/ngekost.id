@@ -23,7 +23,7 @@ class AmenitiesController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('admin.amenities',compact('amenities'));
+        return view('admin.amenities',['amenities'=> $amenitie]);
     }
     public function store(Request $request)
     {

@@ -26,7 +26,7 @@ class PostCategoryController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('admin.post_category',compact('category'));
+        return view('admin.post_category',['category'=>$category]);
     }
     public function store(Request $request)
     {

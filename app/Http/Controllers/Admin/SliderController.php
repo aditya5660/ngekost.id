@@ -32,7 +32,7 @@ class SliderController extends Controller
                     ->rawColumns(['action','image'])
                     ->make(true);
         }
-        return view('admin.sliders.index',compact('slider'));
+        return view('admin.sliders.index',['slider'=>$slider]);
     }
     public function create()
     {
@@ -75,7 +75,7 @@ class SliderController extends Controller
     public function edit($id)
     {
         $slider = Slider::find($id);
-        return view('admin.sliders.edit',compact('slider'));
+        return view('admin.sliders.edit',['slider'=>$slider]);
     }
     public function update(Request $request,$id)
     {

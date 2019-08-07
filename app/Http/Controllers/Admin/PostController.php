@@ -23,14 +23,14 @@ class PostController extends Controller
 
         $posts = Post::latest()->get();
 
-        return view('admin.posts.index',compact('posts'));
+        return view('admin.posts.index',['posts'=>$posts]);
     }
 
 
     public function create()
     {
         $categories = PostCategory::all();
-        return view('admin.posts.create',compact('categories'));
+        return view('admin.posts.create',['categories'=>$categories]);
 
     }
 
@@ -83,7 +83,7 @@ class PostController extends Controller
     {
         $post = Post::find($post->id);
 
-        return view('admin.posts.show',compact('post'));
+        return view('admin.posts.show',['post'=>$post]);
     }
 
 
@@ -92,7 +92,7 @@ class PostController extends Controller
         $categories = PostCategory::all();
         $post = Post::find($post->id);
 
-        return view('admin.posts.edit',compact('categories','post'));
+        return view('admin.posts.edit',['categories'=>$categories,'post'=>$post ]);
     }
 
 
