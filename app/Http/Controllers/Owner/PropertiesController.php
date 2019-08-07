@@ -47,7 +47,7 @@ class PropertiesController extends Controller
                     ->make(true);
         }
 
-        return view('owner.properties.index',['data'=>$data]);
+        return view('owner.properties.index');
     }
 
     public function create()

@@ -53,35 +53,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ml-auto d-lg-none d-xl-none">
-                        <li class="nav-item dropdown active">
-                            <a href="dashboard.html" class="nav-link">Dashboard</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="messages.html" class="nav-link">Messages</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="bookings.html" class="nav-link">Bookings</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="my-properties.html" class="nav-link">My Properties</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="my-invoices.html" class="nav-link">My Invoices</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="favorited-properties.html" class="nav-link">Favorited Properties</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="submit-property.html" class="nav-link">Submit Property</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="my-profile.html" class="nav-link">My Profile</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="index.html" class="nav-link">Logout</a>
-                        </li>
-                    </ul>
+                    @if(Request::is('admin','admin/*'))
+                        @include('layouts.admin_mobile_sidebar')
+                    @elseif(Request::is('users','users/*'))
+                        @include('layouts.user_mobile_sidebar')
+                    @elseif(Request::is('owner','owner/*'))
+                        @include('layouts.owner_mobile_sidebar')
+                    @endif
                     <div class="navbar-buttons ml-auto d-none d-xl-block d-lg-block">
                         <ul>
                             <li>
@@ -91,10 +69,17 @@
                                         {{ Auth::user()->name }}
                                     </a>
                                     <div class="dropdown-menu">
-                                        <a class="dropdown-item" href="dashboard.html">Dashboard</a>
-                                        <a class="dropdown-item" href="messages.html">Messages</a>
-                                        <a class="dropdown-item" href="bookings.html">Bookings</a>
-                                        <a class="dropdown-item" href="my-profile.html">My profile</a>
+                                        @if(Request::is('admin','admin/*'))
+                                            <a class="dropdown-item" href="{{route('admin.dashboard')}}">Dashboard</a>
+                                            <a class="dropdown-item" href="{{route('admin.profile')}}">Profile</a>
+                                        @elseif(Request::is('users','users/*'))
+                                            <a class="dropdown-item" href="{{route('users.dashboard')}}">Dashboard</a>
+                                            <a class="dropdown-item" href="{{route('users.profile')}}">Profile</a>
+                                        @elseif(Request::is('owner','owner/*'))
+                                            <a class="dropdown-item" href="{{route('owner.dashboard')}}">Dashboard</a>
+                                            <a class="dropdown-item" href="{{route('owner.profile')}}">Profile</a>
+                                        @endif
+                                        <a class="dropdown-item" href="{{route('home')}}">Go To Site</a>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                             document.getElementById('logout-form').submit();">
@@ -166,6 +151,6 @@
 
 </body>
 
-<!-- Mirrored from themevessel-item.s3-website-us-east-1.amazonaws.com/neer/dashboard.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 29 Apr 2019 14:53:35 GMT -->
+
 
 </html>

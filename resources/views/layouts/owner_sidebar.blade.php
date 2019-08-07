@@ -3,7 +3,7 @@
         <div class="dashboard-inner">
             <h4>Main</h4>
             <ul>
-                <li class="{{setActive(['owner'])}}">
+                <li class="{{setActive(['owner/dashboard'])}}">
                     <a href="{{route('owner.dashboard')}}"><i class="flaticon-dashboard"></i>
                         Dashboard
                     </a>
@@ -13,7 +13,7 @@
                         My Properties
                     </a>
                 </li>
-                <li class="{{setActive(['owner/properties'])}}">
+                <li class="{{setActive(['owner/transaction'])}}">
                     <a href="{{route('owner.transaction.index')}}"><i class="flaticon-bill"></i>
                         Transaction
                     </a>
@@ -25,17 +25,17 @@
                 </li>
                 <li>
 
-                        <a class="" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
+                    <a class="" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
                                                                     document.getElementById('logout-form').submit();"><i class="flaticon-logout"></i>
-                                                        {{ __('Logout') }}
+                        {{ __('Logout') }}
 
-                        </a>
+                    </a>
 
-                    </li>
-                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                    @csrf
-                                                </form>
+                </li>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </ul>
         </div>
     </div>

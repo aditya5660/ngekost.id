@@ -12,9 +12,9 @@ class PostCategoryController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = PostCategory::latest()->get();
+            $category = PostCategory::latest()->get();
 
-            return Datatables::of($data)
+            return Datatables::of($category)
                     ->addIndexColumn()
 
                     ->addColumn('action', function($row){
@@ -26,7 +26,7 @@ class PostCategoryController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('admin.post_category',['category'=>$category]);
+        return view('admin.post_category');
     }
     public function store(Request $request)
     {
