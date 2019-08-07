@@ -12,9 +12,8 @@ class CategoryController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Category::latest()->get();
-
-            return Datatables::of($data)
+            $category = Category::latest()->get();
+            return Datatables::of($category)
                     ->addIndexColumn()
 
                     ->addColumn('action', function($row){
@@ -26,7 +25,7 @@ class CategoryController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('admin.categories',['category'=>$category]);
+        return view('admin.categories');
     }
     public function store(Request $request)
     {

@@ -3,7 +3,7 @@
         <div class="dashboard-inner">
             <h4>Main</h4>
             <ul>
-                <li class="{{setActive(['admin'])}}">
+                <li class="{{setActive(['admin/dashboard'])}}">
                     <a href="{{route('admin.dashboard')}}"><i class="flaticon-dashboard"></i>
                         Dashboard
                     </a>
@@ -45,33 +45,32 @@
                     </a>
                 </li>
                 <h4>Blog</h4>
-                <li>
+                <li class="{{setActive(['admin/post_category'])}}">
                     <a href="{{route('admin.post_category.index')}}"><i class="fa fa-list"></i>
                         Post Categories
                     </a>
                 </li>
-                <li>
+                <li class="{{setActive(['admin/posts'])}}">
                     <a href="{{ route('admin.posts.index')}}"><i class="fa fa-pencil"></i>
                         Posts
                     </a>
                 </li>
                 <h4>Site Setting</h4>
-                <li>
+                <li class="{{setActive(['admin/sliders'])}}">
                 <a href="{{ route('admin.sliders.index')}}"><i class="fa fa-gear"></i>
                         Slider
                     </a>
                 </li>
-                <li>
+                <li class="{{setActive(['admin/setting'])}}">
                     <a href="{{route('admin.setting')}}"><i class="fa fa-gear"></i>
                         Setting
                     </a>
                 </li>
-                <li>
+                <li class="{{setActive(['admin/profile'])}}">
                     <a href="{{route('admin.profile')}}"><i class="fa fa-user"></i>
                         Profile
                     </a>
                 </li>
-               
 
                 <li>
 

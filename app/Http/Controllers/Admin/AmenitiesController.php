@@ -12,8 +12,8 @@ class AmenitiesController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Amenities::latest()->get();
-            return Datatables::of($data)
+            $amenities = Amenities::latest()->get();
+            return Datatables::of($amenities)
                     ->addIndexColumn()
                     ->addColumn('action', function($row){
                            $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editBtn"><i class="fa fa-pencil"></i></a>';
@@ -23,7 +23,7 @@ class AmenitiesController extends Controller
                     ->rawColumns(['action'])
                     ->make(true);
         }
-        return view('admin.amenities',['amenities'=> $amenitie]);
+        return view('admin.amenities');
     }
     public function store(Request $request)
     {

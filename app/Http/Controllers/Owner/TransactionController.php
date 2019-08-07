@@ -55,7 +55,7 @@ class TransactionController extends Controller
                     ->rawColumns(['action','status','booking_range'])
                     ->make(true);
         }
-        return view('owner.transaction.index', ['data'=>$data]);
+        return view('owner.transaction.index');
     }
     public function invoice($id)
     {

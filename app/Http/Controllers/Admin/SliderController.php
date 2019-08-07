@@ -32,7 +32,7 @@ class SliderController extends Controller
                     ->rawColumns(['action','image'])
                     ->make(true);
         }
-        return view('admin.sliders.index',['slider'=>$slider]);
+        return view('admin.sliders.index');
     }
     public function create()
     {

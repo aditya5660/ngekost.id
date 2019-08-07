@@ -1,4 +1,3 @@
-
 <header class="main-header header-transparent sticky-header">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light">
