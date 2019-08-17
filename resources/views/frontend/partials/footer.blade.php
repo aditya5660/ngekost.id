@@ -38,38 +38,45 @@
                         <div class="f-border"></div>
                         <ul class="links">
                             <li>
-                                <a href="#">Home</a>
+                                <a href="{{route('home')}}">Home</a>
                             </li>
                             <li>
-                                <a href="about.html">Tentang Kami</a>
+                                <a href="{{route('about')}}">Tentang Kami</a>
                             </li>
                             <li>
-                                <a href="services.html">Karir</a>
+                                <a href="#">Karir</a>
                             </li>
                             <li>
-                                <a href="contact.html">Login</a>
+                                <a href="{{route('login')}}">Login</a>
                             </li>
                             <li>
-                                <a href="dashboard.html">Syarat Pengguna</a>
+                                <a href="#">Syarat Pengguna</a>
                             </li>
                             <li>
-                                <a href="properties-details.html">Kebijakan Privasi</a>
+                                <a href="#">Kebijakan Privasi</a>
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6">
                     <div class="footer-item clearfix">
+                        <h4>Find Us On Playstore</h4>
+                        <a href="">
+                            <img src="{{asset('logo/playstore.png')}}" srcset="" width="200">
+                        </a>
+
+                    </div>
+                    <div class="footer-item clearfix">
                         <h4>Subscribe</h4>
                         <div class="f-border"></div>
                         <div class="Subscribe-box">
-                            <p>Subscribe newsletter Ngekost.id untuk info promo dan kamar kost terbaru.</p>
                             <form class="form-inline" action="#" method="GET">
                                 <input type="text" class="form-control mb-sm-0" id="inlineFormInputName3" placeholder="Email Address">
                                 <button type="submit" class="btn"><i class="fa fa-paper-plane"></i></button>
                             </form>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

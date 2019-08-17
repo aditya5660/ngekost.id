@@ -30,7 +30,8 @@ class FrontpageController extends Controller
         $propertycount  = Property::count();
         $usercount      = User::count();
         $transactioncount  = Transaction::count();
-        return view('frontend.index', ['sliders'=>$sliders,'properties'=>$properties,'posts'=>$posts,'amenities'=>$amenities,'settings'=>$settings,'propertycount'=>$propertycount,'usercount'=>$usercount,'transactioncount'=>$transactioncount]);
+
+        return view('frontend.index', ['sliders' => $sliders,'properties' => $properties,'posts' => $posts,'amenities'=>$amenities,'settings'=>$settings,'propertycount'=>$propertycount,'usercount'=>$usercount,'transactioncount'=>$transactioncount]);
     }
 
     public function search(Request $request)
