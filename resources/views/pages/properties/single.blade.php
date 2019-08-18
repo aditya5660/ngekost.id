@@ -110,15 +110,18 @@
                     <!-- contact -->
                     <div class="col-lg-12" style="display:flex;">
                     @guest
+                    <div class="send-btn " style="margin-right:10px;">
+                        <a href="" title="Love it" class="btn btn-md " style="background-color:#b12f27" data-count="0"><i class="fa fa-heart"></i> Love it</a>
+                    </div>
                     <div class="send-btn ">
-                    <a class="btn btn-md btn-primary" href="{{route('login')}}"> Login to Chat & Booking</a>
+                        <a class="btn btn-md btn-primary" href="{{route('login')}}" >Booking</a>
                     </div>
                     @else
                         <div class="send-btn " style="margin-right:10px;">
                             <a href="" title="Love it" class="btn btn-md " style="background-color:#b12f27" data-count="0"><i class="fa fa-heart"></i> Love it</a>
                         </div>
                         <div class="send-btn ">
-                            <a class="btn btn-md btn-primary" data-toggle="modal" data-target="#ajaxModal">Booking Kost</a>
+                            <a class="btn btn-md btn-primary" data-toggle="modal" data-target="#ajaxModal">Booking </a>
                         </div>
                     @endguest
                     </div>

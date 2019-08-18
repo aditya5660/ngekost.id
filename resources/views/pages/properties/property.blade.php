@@ -110,7 +110,7 @@
                                 <div class="s-border"></div>
                                 <ul class="list-unstyled list-cat">
                                     @foreach ($category as $item)
-                                    <li><a href="">{{$item->category_name}}<span></span></a></li>
+                                    <li><a href="{{route('property.category',$item->slug)}}">{{$item->category_name}} <span></span></a></li>
                                     @endforeach
                                 </ul>
                             </div>

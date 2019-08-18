@@ -10,6 +10,7 @@ Route::get('/autocomplete', 'FrontpageController@autocomplete')->name('search.au
 Route::get('/property', 'PagesController@properties')->name('property');
 Route::get('/property/{id}', 'PagesController@propertieshow')->name('property.show');
 Route::get('/property/city/{cityslug}', 'PagesController@propertyCities')->name('property.city');
+Route::get('/property/category/{category}', 'PagesController@propertyCategories')->name('property.category');
 // Route::post('/property', 'PagesController@propertyBooking')->name('property.booking');
 Route::post('/property/booking', 'BookingController@submitBooking')->name('booking.store');
 
