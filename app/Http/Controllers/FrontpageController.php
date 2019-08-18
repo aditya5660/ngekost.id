@@ -21,7 +21,6 @@ class FrontpageController extends Controller
 
     public function index()
     {
-
         $sliders        = Slider::latest()->get();
         $amenities      = Amenities::get();
         $properties     = Property::latest()->where('status',1)->with('user','category')->take(6)->get();
@@ -31,7 +30,28 @@ class FrontpageController extends Controller
         $usercount      = User::count();
         $transactioncount  = Transaction::count();
 
-        return view('frontend.index', ['sliders' => $sliders,'properties' => $properties,'posts' => $posts,'amenities'=>$amenities,'settings'=>$settings,'propertycount'=>$propertycount,'usercount'=>$usercount,'transactioncount'=>$transactioncount]);
+        $yogyakarta      = Property::where('provinces','34')->get()->count();
+        $jakarta      = Property::where('provinces','31')->get()->count();
+        $semarang      = Property::where('provinces','33')->get()->count();
+        $surabaya      = Property::where('provinces','35')->get()->count();
+        $bandung      = Property::where('provinces','32')->get()->count();
+
+        return view('frontend.index',
+            [
+                'sliders' => $sliders,
+                'properties' => $properties,
+                'posts' => $posts,
+                'amenities'=>$amenities,
+                'settings'=>$settings,
+                'propertycount'=>$propertycount,
+                'usercount'=>$usercount,
+                'transactioncount'=>$transactioncount,
+                'yogyakarta' => $yogyakarta,
+                'jakarta' => $jakarta,
+                'semarang' => $semarang,
+                'surabaya' => $surabaya,
+                'bandung' => $bandung,
+            ]);
     }
 
     public function search(Request $request)

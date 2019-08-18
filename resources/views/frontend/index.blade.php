@@ -153,13 +153,13 @@
             <div class="row">
                 <div class="col-lg-5 col-md-12 col-sm-4 col-pad">
                     <div class="category">
-                        <div class="category_bg_box category_long_bg cat-4-bg">
+                        <div class="category_bg_box category_long_bg cat-1-bg">
                             <div class="category-overlay">
                                 <div class="category-content">
                                     <h3 class="category-title">
-                                        <a href="{{route('property.city',34)}}">Jakarta</a>
+                                        <a href="{{route('property.city',34)}}">Yogyakarta</a>
                                     </h3>
-                                    <h4 class="category-subtitle">128 Kost</h4>
+                                    <h4 class="category-subtitle">{{$yogyakarta}} Kost</h4>
                                 </div>
                             </div>
                         </div>
@@ -169,13 +169,13 @@
                     <div class="row">
                         <div class="col-sm-6 col-pad">
                             <div class="category">
-                                <div class="category_bg_box cat-1-bg">
+                                <div class="category_bg_box cat-4-bg">
                                     <div class="category-overlay">
                                         <div class="category-content">
                                             <h3 class="category-title">
-                                                <a href="{{route('property.city',34)}}">Jogja</a>
+                                                <a href="{{route('property.city',31)}}">Jakarta</a>
                                             </h3>
-                                            <h4 class="category-subtitle">27 Kost</h4>
+                                            <h4 class="category-subtitle">{{$jakarta}} Kost</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -187,9 +187,9 @@
                                     <div class="category-overlay">
                                         <div class="category-content">
                                             <h3 class="category-title">
-                                                <a href="{{route('property.city',34)}}">Semarang</a>
+                                                <a href="{{route('property.city',33)}}">Semarang</a>
                                             </h3>
-                                            <h4 class="category-subtitle">98 Kost</h4>
+                                            <h4 class="category-subtitle">{{$semarang}} Kost</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -201,9 +201,9 @@
                                     <div class="category-overlay">
                                         <div class="category-content">
                                             <h3 class="category-title">
-                                                <a href="{{route('property.city',34)}}">Surabaya</a>
+                                                <a href="{{route('property.city',35)}}">Surabaya</a>
                                             </h3>
-                                            <h4 class="category-subtitle">98 Kost</h4>
+                                            <h4 class="category-subtitle">{{$surabaya}} Kost</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -215,9 +215,9 @@
                                     <div class="category-overlay">
                                         <div class="category-content">
                                             <h3 class="category-title">
-                                                <a href="{{route('property.city',34)}}">Bandung</a>
+                                                <a href="{{route('property.city',32)}}">Bandung</a>
                                             </h3>
-                                            <h4 class="category-subtitle">98 Kost</h4>
+                                            <h4 class="category-subtitle">{{$bandung}} Kost</h4>
                                         </div>
                                     </div>
                                 </div>

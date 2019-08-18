@@ -34,10 +34,11 @@ class PagesController extends Controller
         $recentproperty = Property::latest()
                     ->take(1)->get();
         $amenities = Amenities::get();
+        // $category = Category::get();
         $category = Category::get();
         $settings       = Setting::first();
 
-        return view('pages.properties.property', ['property'=>$property,'recentproperty'=>$recentproperty,'category'=>$category,'amenities'=>$amenities,'settings'=>$settings]);
+        return view('pages.properties.property', ['property'=> $property,'recentproperty'=>$recentproperty,'category'=>$category,'amenities'=>$amenities,'settings'=>$settings]);
     }
 
 
@@ -46,7 +47,6 @@ class PagesController extends Controller
         $property = Property::with('gallery','user','category','province','regency','district')
                             ->where('slug', $slug)
                             ->first();
-
 
         $relatedproperty = Property::latest()
                     ->where('category_id', $property->category_id)
@@ -75,6 +75,21 @@ class PagesController extends Controller
         return view('pages.properties.property', ['property'=>$property,'recentproperty'=>$recentproperty,'category'=>$category,'amenities'=>$amenities,'settings'=>$settings]);
     }
 
+    public function propertyCategories($slug)
+    {
+        $category = Category::where('slug', $slug )->first();
+        $id = $category->id;
+
+
+        $property = Property::where('category_id',$id)->latest()->paginate(12);
+        $recentproperty = Property::latest()
+        ->take(1)->get();
+        $amenities = Amenities::get();
+        $category = Category::get();
+        $settings       = Setting::first();
+
+        return view('pages.properties.property', ['property'=>$property,'recentproperty'=>$recentproperty,'category'=>$category,'amenities'=>$amenities,'settings'=>$settings]);
+    }
 
 
     // BLOG PAGE
