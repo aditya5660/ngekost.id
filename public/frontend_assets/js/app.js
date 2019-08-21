@@ -2,8 +2,8 @@ $(function () {
 
     'use strict';
 
-    const baseURL = "http://localhost/laravel/ngekost.id/public/logo/";
-    const imgURL = "https://ngekost.id/public/logo/";
+    const imgURL = "http://localhost/laravel/ngekost.id/public/logo/";
+    const baseURL = "https://ngekost.id/logo/";
 
     // Showing page loader
     $(window).on('load', function () {
