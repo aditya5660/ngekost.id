@@ -31,6 +31,14 @@
                         <form action="{{ route('register') }}" method="POST">
                             @csrf
                             <div class="form-group">
+                                <input id="username" type="text" class="input-text form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" placeholder="Username" required autofocus>
+                                @if ($errors->has('username'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('username') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="form-group">
                                 <input id="name" type="text" class="input-text form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" placeholder="Full Name" required autofocus>
 
                                 @if ($errors->has('name'))
@@ -51,8 +59,8 @@
 
                             <div class="form-group ">
                                 <select name="roleid" id="role" class="input-text form-control">
-                                    <option class="input-text form-control" value="user">Users</option>
-                                    <option class="input-text form-control" value="owner">Owner</option>
+                                    <option class="input-text form-control" value="user">Pencari Kost | Users</option>
+                                    <option class="input-text form-control" value="owner">Pemilik Kost | Property Owner</option>
                                 </select>
                                 @if ($errors->has('role'))
                                     <span class="invalid-feedback" role="alert">
