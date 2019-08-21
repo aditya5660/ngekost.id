@@ -232,6 +232,7 @@
                     dataType: "json",
                     success: function (data) {
                         $('select[name="regencies"]').empty();
+                        $('select[name="districts"]').empty();
                         $.each(data, function (key, value) {
                             $('select[name="regencies"]').append('<option value="' + value.id + '">' + value.name + '</option>');
                         });

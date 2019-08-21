@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use App\Mail\VerifyMail;
-use App\verifyUser;
+use App\VerifyUser;
+
 class RegisterController extends Controller
 {
     /*
@@ -53,6 +54,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'username'  => 'required|string|max:255|unique:users',
             'name'      => 'required|string|max:255',
             'email'     => 'required|string|email|max:255|unique:users',
             'password'  => 'required|string|min:6|confirmed',
@@ -67,20 +69,16 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        // dd($data);
-        $username   = strtok($data['name'], " ");
         if($data['roleid'] == 'owner' ) {
             $roleid = 2;
         } else {
             $roleid = 3;
         };
-
-
         $user  = User::create([
             'name'      => $data['name'],
+            'username'  => $data['username'],
             'email'     => $data['email'],
             'password'  => Hash::make($data['password']),
-            'username'  => $username,
             'role_id'   => $roleid,
         ]);
 
